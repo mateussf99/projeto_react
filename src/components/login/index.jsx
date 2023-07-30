@@ -1,5 +1,5 @@
 import React from 'react'
-import logo_2 from '../../assets/img/logo-2.svg'
+import logo from '../../assets/img/logo.svg'
 import './style.css'
 
 const index = () => {
@@ -7,7 +7,7 @@ const index = () => {
         <div className="forms-login">
             <form action="#" method="post" target="_blank" autocomplete="off">
                 <div className="img-logo">
-                    <img src={ logo_2 } alt="lapada da logo"/>
+                    <img src={ logo } alt="lapada da logo"/>
                 </div>
                 <p>
                     <label for="email">Email: </label>

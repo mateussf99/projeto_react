@@ -4,7 +4,7 @@
   --white-color: #ffffff;
   --white-color-2: rgba(255, 255, 255, 0.8);
 
-  --regular-font: 'ubuntu', sans-serif;
+  --regular-font: 'M PLUS Rounded 1c', sans-serif;
 }
 
 * { 
@@ -16,7 +16,4 @@
 html {
   font-size: 62.5%; /* 1rem = 10px */
   scroll-behavior: smooth; /*rolagem suave*/
-}
-body {
-  background-color: var(--primary-color);
 }
