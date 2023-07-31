@@ -12,7 +12,7 @@
 .logo img {
     width: 30rem;
     height: 30rem;
-    padding-left: 35rem;
+    padding-left: 33rem;
     padding-bottom: 0;
 }
 .logo h2 {
@@ -46,7 +46,7 @@
       width: 25rem;
       height: 25rem;
       padding-right: 0;
-      
+      padding-left: 25rem;
       padding-bottom: 0;
       
     }
@@ -58,10 +58,11 @@
     }
   
     .section-login {
-        width: 50rem;
+        width: 80rem;
         background-color: var(--primary-color);
         display: flex;
         align-items: center;
+        padding-left: 0;
         justify-content: center;
     }
   }
