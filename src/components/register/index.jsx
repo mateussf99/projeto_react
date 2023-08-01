@@ -28,7 +28,7 @@ const index = () => {
             </p>
             
             <div className="buttons">
-                <a href="#">Voltar</a>
+                <a href="/">Voltar</a>
                 <button type="submit">confirmar</button>
             </div>
         </form>
