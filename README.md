@@ -6,7 +6,7 @@ comandos apos instalar o node e o vite
   git clone https://github.com/mateussf99/projeto_react
   #instalar os modulos do node
   npm i
-  #conferir o projeto
+  #rodar o localhost
   npm run dev
 
 ```
