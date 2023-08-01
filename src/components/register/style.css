@@ -91,3 +91,40 @@ input[type="number"]::-webkit-inner-spin-button {
 .button-cadastro {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 1440px) {
+    .titulo {
+        font-size: 2.2rem;
+    
+    }
+    .forms-cadastro form {
+        width: 35rem;
+        height: 55rem;
+        
+    }
+    .forms-cadastro label {
+        display: flex; 
+        font-size: 1.5rem;
+    }
+    .forms-cadastro input {
+        width: 30rem;
+        height: 3rem;
+        font-size: 1.6rem;
+    }
+    .buttons {
+        display: flex;
+        width: 30rem;
+        margin-bottom: 2rem;
+        justify-content: center;
+    }
+    .buttons a {
+        width: 11rem;
+        height: 3.8rem;
+        font-size: 1.5rem;
+    }
+    .forms-cadastro button {
+        width: 11rem;
+        height: 3.8rem;
+        font-size: 1.5rem;
+    }    
+}
