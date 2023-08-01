@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7rem;
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+    .logo_div {
+        margin-left: 0.5rem;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo_img{
+        display: flex;
+        height: 6rem;
+        width: 4rem;
+        margin-right: .5rem;
+
+    }
+
+    .logo_img img{
+        background-size: cover;
+    }
+
+    .search_bar {
+        width: 25%;
+        height: 3rem;
+        font-size: 2rem;
+        border-radius: 10px; 
+        text-align: center;
+        border-style: none;
+        background-color: var(--gray-color-2);
+        outline: solid 1px var(--gray-color-1);
+    }
+
+    .menu_img {
+        margin-right: 5rem;
+        margin-left: 14.5rem;
+        width: 5rem;
+        height: 5rem;
+    }

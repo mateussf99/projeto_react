@@ -1,4 +1,3 @@
-import React from 'react'
 import Register from '../../components/register'
 import logo from '../../assets/img/logo.svg'
 import './style.css'
