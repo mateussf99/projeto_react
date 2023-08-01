@@ -18,10 +18,9 @@
 }
 
 html {
-  font-size: 62.5%;
-  /* 1rem = 10px */
-  scroll-behavior: smooth;
-  /*rolagem suave*/
+  font-size: 62.5%;/* 1rem = 10px */
+  scroll-behavior: smooth;/*rolagem suave*/
+  font-family: var(--regular-font); /*fonte padrão*/
 }
 
 body {

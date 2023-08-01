@@ -1,0 +1,19 @@
+.forms-materias {
+    width: 103.5rem;
+    height: 83rem;
+    background-color: var(--white-color-2);
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.forms-materias h2 {
+    font-size: 4rem;
+    color: var(--black-color);
+    margin-bottom: 3rem;
+}
+.forms-materias form p{
+    font-size: 2.4rem;
+}
+
