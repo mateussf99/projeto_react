@@ -14,17 +14,24 @@ const index = () => {
             </p>
             <p>
                 <label >Período:</label>
-                <select>
-                    <option value="1 Período" label="1 Período"></option>
-                    <option value="2 Período" label="2 Período"></option>
-                    <option value="3 Período" label="3 Período"></option>
-                    <option value="4 Período" label="4 Período"></option>
-                    <option value="5 Período" label="5 Período"></option>
-                    <option value="6 Período" label="6 Período"></option>
-                    <option value="7 Período" label="7 Período"></option>
-                    <option value="8 Período" label="8 Período"></option>
+                <select required>
+                    <option value="" label="Escolha o período" disabled selected></option>
+                    <option value="1 Período" label="1° Período"></option>
+                    <option value="2 Período" label="2° Período"></option>
+                    <option value="3 Período" label="3° Período"></option>
+                    <option value="4 Período" label="4° Período"></option>
+                    <option value="5 Período" label="5° Período"></option>
+                    <option value="6 Período" label="6° Período"></option>
+                    <option value="7 Período" label="7° Período"></option>
+                    <option value="8 Período" label="8° Período"></option>
                 </select>
             </p>
+            <div className='materias-periodo'></div>
+            <p>
+                <label >Todas as matérias:</label>
+                <input type="text" id="materias" name="materias" placeholder="materia" />
+            </p>
+            <div className='materias-todas'></div>
         </form>
 
     </div>
