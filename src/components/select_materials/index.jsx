@@ -14,17 +14,16 @@ const index = () => {
             </p>
             <p>
                 <label >Período:</label>
-                <input type="text" id="período" name="período" list="tickmarks"  required />
-                <datalist id="tickmarks">
+                <select>
                     <option value="1 Período" label="1 Período"></option>
                     <option value="2 Período" label="2 Período"></option>
                     <option value="3 Período" label="3 Período"></option>
-                    <option value="4  Período" label="4 Período"></option>
-                    <option value="5  Período" label="5 Período"></option>
-                    <option value="6  Período" label="6 Período"></option>
+                    <option value="4 Período" label="4 Período"></option>
+                    <option value="5 Período" label="5 Período"></option>
+                    <option value="6 Período" label="6 Período"></option>
                     <option value="7 Período" label="7 Período"></option>
                     <option value="8 Período" label="8 Período"></option>
-                </datalist>
+                </select>
             </p>
         </form>
 
