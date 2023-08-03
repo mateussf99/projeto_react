@@ -13,12 +13,50 @@
     color: var(--black-color);
     margin-bottom: 3rem;
 }
+
+.tipo-aluno {
+    display: flex;
+    justify-content: center;
+}
+.tipo-aluno label {
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+.tipo-aluno input {
+    
+    padding-bottom : 1rem;
+    
+}
 .forms-materias form p{
     font-size: 2.4rem;
+    
+}
+
+.periodo select {
+    width: 38.5rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray-color-1);
+    margin-left: 1rem;
 }
 .materias-periodo {
     width: 83rem;
     height: 18rem;
     background-color: var(--white-color);
     border-radius: 0.5rem;
+}
+
+.todas input {
+    width: 38.5rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--gray-color-1);
+    padding-left: 0.2rem
+}
+.materias-todas {
+    width: 83rem;
+    height: 18rem;
+    background-color: var(--white-color);
+    border-radius: 0.5rem;
+    
 }

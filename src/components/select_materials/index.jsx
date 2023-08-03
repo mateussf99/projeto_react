@@ -12,7 +12,7 @@ const index = () => {
                 <input type="radio" id="Monitor" name="dicente" value="Monitor" required/>
                 <label >Monitor</label>
             </p>
-            <p>
+            <p className='periodo'>
                 <label >Período:</label>
                 <select required>
                     <option value="" label="Escolha o período" disabled selected></option>
@@ -27,9 +27,9 @@ const index = () => {
                 </select>
             </p>
             <div className='materias-periodo'></div>
-            <p>
+            <p className='todas'>
                 <label >Todas as matérias:</label>
-                <input type="text" id="materias" name="materias" placeholder="materia" />
+                <input type="text" id="materias" name="materias" placeholder="  Materia" />
             </p>
             <div className='materias-todas'></div>
         </form>
