@@ -1,0 +1,9 @@
+.selecao-materias {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selecao-materias .header {
+    margin-bottom: 3rem;
+}

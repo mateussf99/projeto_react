@@ -67,11 +67,12 @@
     border-radius: 0.5rem;
     
 }
-.confirmar {
-    width: 11.9rem;
-    height: 4.1rem;
-    margin: 0; 
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: full;
 }
+
 .confirmar button {
     width: 11.9rem;
     height: 4.1rem;

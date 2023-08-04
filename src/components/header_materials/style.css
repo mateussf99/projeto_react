@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7rem;
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+.logo_div {
+    margin-left: 0.5rem;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+.logo_text {
+    margin: 0;
+}
+
+.logo_img{
+    display: flex;
+    height: 6rem;
+    width: 4rem;
+    margin-right: .5rem;
+
+}
+
+.logo_img img{
+    background-size: cover;
+}
+.espaco {
+    height: 6rem;
+    width: 4rem;
+    margin-right: .5rem;
+}

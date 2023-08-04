@@ -36,9 +36,13 @@ const index = () => {
             <p>
                 <div className='materias-todas'></div>
             </p>
-            <div className='confirmar'>
-                <button type="submit">confirmar</button>
+
+            <div className='button-container'>
+                <div className='confirmar'>
+                    <button type="submit">confirmar</button>
+                </div>
             </div>
+            
             
         </form>
 
