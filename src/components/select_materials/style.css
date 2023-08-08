@@ -94,5 +94,9 @@
 
 .checkbox-label {
     display: block;
-    margin-bottom: 5px; /* Add spacing between checkboxes */
+    margin-left: 0.5rem;
+}
+
+.checkbox-label input {
+    margin-right: 0.5rem;
 }
