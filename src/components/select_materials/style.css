@@ -64,7 +64,9 @@
     width: 83rem;
     height: 18rem;
     background-color: var(--white-color);
+    font-size: 2.4rem;
     border-radius: 0.5rem;
+    overflow-y: auto;
     
 }
 .button-container {
@@ -100,3 +102,20 @@
 .checkbox-label input {
     margin-right: 0.5rem;
 }
+
+.materias-todas::-webkit-scrollbar {
+    width: 1rem;     /* Tamanho do scroll em si */            
+  }
+  
+  .materias-todas::-webkit-scrollbar-track {
+    background: var(--white-color);    /* Fundo do scroll */     
+  }
+  
+  .materias-todas::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);    /* Cor do scroll */
+    border-radius: 2rem;      /* Arredondamento do scroll */
+    border: 0.2rem solid var(--white-color);
+  }
+  .materias-todas::-webkit-scrollbar-thumb:hover{
+    background-color: var(--primary-color);  /* Cor do scroll */
+  }

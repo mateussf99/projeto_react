@@ -6,7 +6,11 @@ const Index = () => {
         { nome: "calculo diferencial e integral", periodo: 1 },
         { nome: "logica", periodo: 1 },
         { nome: "programção 1", periodo: 1 },
-        { nome: "banco de dados", periodo: 2 }
+        { nome: "banco de dados", periodo: 2 },
+        { nome: "estrutura de dados", periodo: 2 },
+        { nome: "geometria analitica", periodo: 2 },
+        { nome: "organização e arquitetura de computadores", periodo: 2 },
+
     ];
 
     const [selectedPeriod, setSelectedPeriod] = useState('');
@@ -16,6 +20,19 @@ const Index = () => {
     };
 
     const filteredMaterias = materias.filter(materia => materia.periodo.toString() === selectedPeriod);
+
+    const [inputValue, setInputValue] = useState('');
+    const [filteredMateriasTodas, setFilteredMateriasTodas] = useState(materias);
+    const handleMateriasInputChange = (event) => {
+        const inputValue = event.target.value;
+        setInputValue(inputValue);
+    
+        const filteredMaterias = materias.filter(materia =>
+            materia.nome.toLowerCase().includes(inputValue.toLowerCase())
+        );
+    
+        setFilteredMateriasTodas(filteredMaterias);
+    };
 
     return (
         <div className='forms-materias'>
@@ -45,16 +62,23 @@ const Index = () => {
                 <p className='materias-periodo'>
                     {filteredMaterias.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} />
+                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} defaultChecked={true} />
                             {materia.nome}
                         </label>
                     ))}
                 </p>
                 <p className='todas'>
                     <label >Todas as matérias:</label>
-                    <input type="text" id="materias" name="materias" placeholder="Matéria" />
+                    <input type="text" id="materias" name="materias" placeholder="Matéria" value={inputValue} onChange={handleMateriasInputChange} />
                 </p>
-                <div className='materias-todas'></div>
+                <div className='materias-todas'>
+                    {filteredMateriasTodas.map((materia, index) => (
+                        <label className="checkbox-label" key={index}>
+                            <input type="checkbox" name="materiaCheckbox"  value={materia.nome}  />
+                            {materia.nome}
+                        </label>
+                    ))}
+                </div>
                 <div className='button-container'>
                     <div className='confirmar'>
                         <button type="submit">confirmar</button>
