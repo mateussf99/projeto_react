@@ -10,10 +10,10 @@ const Index = () => {
         { nome: "estrutura de dados", periodo: 2 },
         { nome: "geometria analitica", periodo: 2 },
         { nome: "organização e arquitetura de computadores", periodo: 2 },
-
     ];
 
     const [selectedPeriod, setSelectedPeriod] = useState('');
+    const [selectedMaterias, setSelectedMaterias] = useState([]);
 
     const handlePeriodChange = (event) => {
         setSelectedPeriod(event.target.value);
@@ -23,15 +23,26 @@ const Index = () => {
 
     const [inputValue, setInputValue] = useState('');
     const [filteredMateriasTodas, setFilteredMateriasTodas] = useState(materias);
+
     const handleMateriasInputChange = (event) => {
         const inputValue = event.target.value;
         setInputValue(inputValue);
-    
+
         const filteredMaterias = materias.filter(materia =>
             materia.nome.toLowerCase().includes(inputValue.toLowerCase())
         );
-    
+
         setFilteredMateriasTodas(filteredMaterias);
+    };
+
+    const handleMateriaCheckboxChange = (event) => {
+        const materiaNome = event.target.value;
+
+        if (event.target.checked) {
+            setSelectedMaterias([...selectedMaterias, materiaNome]);
+        } else {
+            setSelectedMaterias(selectedMaterias.filter(materia => materia !== materiaNome));
+        }
     };
 
     return (
@@ -39,11 +50,11 @@ const Index = () => {
             <h2>Selecione as matérias em que está matriculado:</h2>
             <form action="#" method='get'>
                 <p className='tipo-aluno'>
-                    <label >Eu sou:</label>
+                    <label>Eu sou:</label>
                     <input type="radio" id="Aluno" name="dicente" value="Aluno" required />
-                    <label >Aluno</label>
+                    <label>Aluno</label>
                     <input type="radio" id="Monitor" name="dicente" value="Monitor" required />
-                    <label >Monitor</label>
+                    <label>Monitor</label>
                 </p>
                 <p className='periodo'>
                     <label>Período:</label>
@@ -68,13 +79,13 @@ const Index = () => {
                     ))}
                 </p>
                 <p className='todas'>
-                    <label >Todas as matérias:</label>
+                    <label>Todas as matérias:</label>
                     <input type="text" id="materias" name="materias" placeholder="Matéria" value={inputValue} onChange={handleMateriasInputChange} />
                 </p>
                 <div className='materias-todas'>
                     {filteredMateriasTodas.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox"  value={materia.nome}  />
+                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} checked={selectedMaterias.includes(materia.nome)} onChange={handleMateriaCheckboxChange} />
                             {materia.nome}
                         </label>
                     ))}
