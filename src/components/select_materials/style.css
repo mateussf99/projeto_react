@@ -68,6 +68,7 @@
     
 }
 .button-container {
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     width: full;
@@ -89,4 +90,9 @@
     background-color: var(--primary-color);
     color: var(--white-color);
     transition: 0.3s;
+}
+
+.checkbox-label {
+    display: block;
+    margin-bottom: 5px; /* Add spacing between checkboxes */
 }
