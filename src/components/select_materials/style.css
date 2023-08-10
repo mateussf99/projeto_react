@@ -17,7 +17,6 @@
 .forms-materias h2 {
     font-size: 4rem;
     color: var(--black-color);
-    margin-bottom: 3rem;
 }
 .forms-materias p {
     padding-bottom: 1rem;
@@ -128,7 +127,8 @@
   @media screen and (max-width: 1440px){
     .forms-materias {
         width: 83rem;
-        height: 63rem;
+        height: 53rem;
+        margin-top: 10rem;
         
     }
     .forms-materias h2 {
@@ -181,5 +181,129 @@
         width: 8.9rem;
         height: 3.1rem;
         font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .forms-materias {
+        width: 73rem;
+        margin-top: 9rem;
+    }
+    .forms-materias h2 {
+        font-size: 2.5rem;
+    }
+    .forms-materias p {
+        font-size: 1.5rem;
+    }
+    .forms-materias form p{
+        font-size: 1.5rem;
+    }
+    .periodo select {
+        width: 13.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin-left: 16rem;
+
+    }
+    .periodo label {
+        font-size: 1.5rem;
+        
+    }
+    .todas input {
+        width: 13.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin-left: 8rem;
+    }
+    .todas label {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .materias-periodo {
+        width: 63rem;
+        height: 13rem;
+        margin-bottom: 1rem;
+    }
+    .materias-periodo label {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .materias-todas {
+        width: 63rem;
+        height: 13rem;
+    }
+    .materias-todas label {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .confirmar button {
+        width: 7.9rem;
+        height: 2.9rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 414px){
+    .forms-materias {
+        width: 40rem;
+        background-color: var(--white-color-2);
+        border-radius: 1rem;
+        margin-top: 14rem;
+        
+    }
+    .forms-materias form {
+        width: 39rem;
+    }
+    .forms-materias h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .forms-materias p {
+        font-size: 1.5rem;
+    }
+    .forms-materias form p{
+        font-size: 1.5rem;
+    }
+    .periodo select {
+        width: 13rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin-left: 11rem;
+    }
+    .periodo label {
+        font-size: 1.7rem;
+        
+    }
+    .todas input {
+        width: 13rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        margin-left: 2rem;
+    }
+    .todas label {
+        font-size: 1.7rem;
+        margin-left: 1rem;
+    }
+    .materias-periodo {
+        width: 33rem;
+        height: 13rem;
+        margin-bottom: 1rem;
+    }
+    .materias-periodo label {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .materias-todas {
+        width: 33rem;
+        height: 13rem;
+    }
+    .materias-todas label {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .confirmar button {
+        width: 6.9rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
     }
 }
