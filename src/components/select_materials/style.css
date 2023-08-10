@@ -8,6 +8,12 @@
     align-items: center;
     flex-direction: column;
 }
+.forms-materias form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .forms-materias h2 {
     font-size: 4rem;
     color: var(--black-color);
@@ -16,7 +22,9 @@
 .forms-materias p {
     padding-bottom: 1rem;
 }
-
+.forms-materias form p{
+    font-size: 2.4rem;
+}
 .tipo-aluno {
     display: flex;
     justify-content: center;
@@ -27,10 +35,6 @@
 .tipo-aluno input {
     width: 1.5rem;
     padding-bottom: 1rem;
-    
-}
-.forms-materias form p{
-    font-size: 2.4rem;
     
 }
 
@@ -59,6 +63,7 @@
     padding-left: 0.5rem;
     font-family: var(--regular-font);
     font-size: 1.5rem;
+    margin-left: 1rem;
 }
 .materias-todas {
     width: 83rem;
@@ -119,3 +124,62 @@
   .materias-todas::-webkit-scrollbar-thumb:hover{
     background-color: var(--primary-color);  /* Cor do scroll */
   }
+
+  @media screen and (max-width: 1440px){
+    .forms-materias {
+        width: 83rem;
+        height: 63rem;
+        
+    }
+    .forms-materias h2 {
+        font-size: 3rem;
+    }
+    .forms-materias p {
+        font-size: 1.8rem;
+    }
+    .forms-materias form p{
+        font-size: 2rem;
+    }
+    .periodo select {
+        width: 33.5rem;
+        height: 2.5rem;
+        font-size: 1.3rem;
+        margin-left: 17rem;
+
+    }
+    .periodo label {
+        font-size: 1.8rem;
+        
+    }
+    .todas input {
+        width: 33.5rem;
+        height: 2.5rem;
+        font-size: 1.3rem;
+        margin-left: 8rem;
+    }
+    .todas label {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+    }
+    .materias-periodo {
+        width: 73rem;
+        height: 13rem;
+    }
+    .materias-periodo label {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+    }
+    .materias-todas {
+        width: 73rem;
+        height: 13rem;
+    }
+    .materias-todas label {
+        font-size: 1.8rem;
+        margin-left: 1rem;
+    }
+    .confirmar button {
+        width: 8.9rem;
+        height: 3.1rem;
+        font-size: 1.5rem;
+    }
+}
