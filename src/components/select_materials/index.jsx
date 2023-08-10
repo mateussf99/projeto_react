@@ -73,7 +73,7 @@ const Index = () => {
                 <p className='materias-periodo'>
                     {filteredMaterias.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} defaultChecked={true} />
+                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} />
                             {materia.nome}
                         </label>
                     ))}
