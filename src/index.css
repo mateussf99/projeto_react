@@ -1,5 +1,6 @@
 :root {
   --primary-color: #1781E3;
+  --secondary-color: #6DA1D0;
   --black-color: #000000;
   --white-color: #ffffff;
   --white-color-2: rgba(255, 255, 255, 0.8);
@@ -18,10 +19,9 @@
 }
 
 html {
-  font-size: 62.5%;
-  /* 1rem = 10px */
-  scroll-behavior: smooth;
-  /*rolagem suave*/
+  font-size: 62.5%;/* 1rem = 10px */
+  scroll-behavior: smooth;/*rolagem suave*/
+  font-family: var(--regular-font); /*fonte padrão*/
 }
 
 body {
