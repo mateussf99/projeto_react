@@ -21,6 +21,8 @@ const Index = () => {
 
     const filteredMaterias = materias.filter(materia => materia.periodo.toString() === selectedPeriod);
 
+    const selectedMateriasPeriodo = filteredMaterias.map(materia => materia.nome);
+
     const [inputValue, setInputValue] = useState('');
     const [filteredMateriasTodas, setFilteredMateriasTodas] = useState(materias);
 
@@ -45,10 +47,25 @@ const Index = () => {
         }
     };
 
+    const filteredMateriasTodasFiltered = filteredMateriasTodas.filter(materia =>
+        !selectedMateriasPeriodo.includes(materia.nome)
+    );
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        console.log('Eu sou:', document.querySelector('input[name="dicente"]:checked').value);
+        console.log('Período:', selectedPeriod);
+        console.log('Matérias selecionadas:');
+        selectedMaterias.forEach(materia => {
+            console.log(materia);
+        });
+    }
+
     return (
         <div className='forms-materias'>
             <h2>Selecione as matérias em que está matriculado:</h2>
-            <form action="#" method='get'>
+            <form action="#" onSubmit={handleSubmit}>
                 <p className='tipo-aluno'>
                     <label>Eu sou:</label>
                     <input type="radio" id="Aluno" name="dicente" value="Aluno" required />
@@ -73,7 +90,7 @@ const Index = () => {
                 <p className='materias-periodo'>
                     {filteredMaterias.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} />
+                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} checked={selectedMaterias.includes(materia.nome)} onChange={handleMateriaCheckboxChange} />
                             {materia.nome}
                         </label>
                     ))}
@@ -83,7 +100,7 @@ const Index = () => {
                     <input type="text" id="materias" name="materias" placeholder="Matéria" value={inputValue} onChange={handleMateriasInputChange} />
                 </p>
                 <div className='materias-todas'>
-                    {filteredMateriasTodas.map((materia, index) => (
+                    {filteredMateriasTodasFiltered.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
                             <input type="checkbox" name="materiaCheckbox" value={materia.nome} checked={selectedMaterias.includes(materia.nome)} onChange={handleMateriaCheckboxChange} />
                             {materia.nome}
