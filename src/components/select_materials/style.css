@@ -1,6 +1,6 @@
 .forms-materias {
     width: 103.5rem;
-    height: 83rem;
+    height: 80rem;
     background-color: var(--white-color-2);
     border-radius: 1rem;
     display: flex;
@@ -112,7 +112,8 @@
   }
   
   .materias-todas::-webkit-scrollbar-track {
-    background: var(--white-color);    /* Fundo do scroll */     
+    background: var(--white-color);    /* Fundo do scroll */  
+    border-radius: 2rem;      /* Arredondamento do scroll */
   }
   
   .materias-todas::-webkit-scrollbar-thumb {
@@ -128,7 +129,7 @@
     .forms-materias {
         width: 83rem;
         height: 53rem;
-        margin-top: 10rem;
+        margin-top: 9rem;
         
     }
     .forms-materias h2 {
