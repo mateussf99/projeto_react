@@ -5,7 +5,7 @@ import './style.css'
 const index = () => {
   return (
     <div className='principal'>
-        <div className='logo'>
+        <div className='logo-cadastro'>
             <img src={logo} alt="logo do Inter" />
             <h2>InteraCt</h2>
         </div>
