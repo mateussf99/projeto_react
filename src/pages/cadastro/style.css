@@ -1,6 +1,9 @@
 .principal {
     display: flex;
 }
+.mobile{
+    display: none;
+}
 .logo-cadastro {
     width: 104rem;
     height: 100vh;
@@ -29,8 +32,35 @@
     align-items: center;
     justify-content: center;
 }
+@media screen and (max-width: 768px) {
+    .section-login {
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
+      display: none;
+    }
+    .mobile
+    {
+      display: flex;
+      color: var(--white-color);
+      font-size: 6rem;
+      font-family: var(--regular-font);
+    }
+  }
 @media screen and (max-width: 414px) {
     .logo-cadastro {
       display: none;
     }
-  }
+    .section-login {
+        flex-direction: column;
+        align-items: center;
+      }
+      .mobile
+      {
+        display: flex;
+        color: var(--white-color);
+        font-size: 6rem;
+        margin-bottom: 4rem;
+      }  
+}

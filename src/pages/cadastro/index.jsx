@@ -6,11 +6,12 @@ const index = () => {
   return (
     <div className='principal'>
         <div className='logo-cadastro'>
-            <img src={logo} alt="logo do Inter" />
-            <h2>InteraCt</h2>
+          <img src={logo} alt="logo do Inter" />
+          <h2>InteraCt</h2>
         </div>
         <div className='section-login'>
-            <Register/>
+          <h2 className='mobile'>InteraCt</h2>
+          <Register/>
         </div>
     </div>
   )

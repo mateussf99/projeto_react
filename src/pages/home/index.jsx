@@ -10,7 +10,8 @@ const index = () => {
             <h2>InteraCt</h2>
         </div>
         <div className='section-login'>
-            <Login/>
+          <h2 className='mobile'>InteraCt</h2>
+          <Login/>
         </div>
     </div>
   )
