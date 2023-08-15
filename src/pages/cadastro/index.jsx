@@ -9,8 +9,8 @@ const index = () => {
           <img src={logo} alt="logo do Inter" />
           <h2>InteraCt</h2>
         </div>
-        <div className='section-login'>
-          <h2 className='mobile'>InteraCt</h2>
+        <div className='section-cadastro'>
+          <h2 className='mobile-cadastro'>InteraCt</h2>
           <Register/>
         </div>
     </div>
