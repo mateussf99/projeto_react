@@ -4,20 +4,18 @@ import './style.css'
 const Index = () => {
     const nome = useRef();
     const email = useRef();
-    const id = useRef();
     const password = useRef();
     const confirmPassword = useRef();
 
     const submitHandler = async (event) => {
         event.preventDefault();
 
-        const user = {nome: nome.current.value,
+        const user = {username: nome.current.value,
                 email: email.current.value,
-                id: id.current.value,
                 password: password.current.value} 
 
                 try {
-                    const response = await fetch('http://localhost:8080/users/cadastro', {
+                    const response = await fetch('http://localhost:8080/users/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -53,7 +51,7 @@ const Index = () => {
             </p>
             <p>
                 <label>Matrícula:</label>
-                <input type="number" name="matricula" placeholder="123456" required ref={id}/>
+                <input type="number" name="matricula" placeholder="123456" />
             </p>
             <p>
                 <label>Senha: </label>
