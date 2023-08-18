@@ -1,0 +1,8 @@
+.user_container {
+    background-color: var(--white-color-2);
+    justify-content: center;
+    width: 95%;
+    max-width: 103.5rem;
+    height: 85vh;
+    border-radius: 1rem;
+}

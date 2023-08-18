@@ -1,9 +1,9 @@
 import './style.css';
 import Header from '../../components/header';
-import MateriasMain from '../../components/materias_main';
-import MateriasLeft from '../../components/materias_left';
+import Materias from '../../components/materias_main/';
+import MateriasSelectMenu from '../../components/materias_select_menu/';
 
-const Index = () => {
+const Materia = () => {
   const selectedMateria = 
     {
       id: "1",
@@ -37,11 +37,11 @@ const Index = () => {
     <div>
       <Header />
       <div className='body'>
-        <MateriasLeft selected={selectedMateria.name} list={listaMaterias} />
-        <MateriasMain materia={selectedMateria} />
+        <MateriasSelectMenu selected={selectedMateria.name} list={listaMaterias} />
+        <Materias materia={selectedMateria} />
       </div>
     </div>
   )
 }
 
-export default Index;
+export default Materia;

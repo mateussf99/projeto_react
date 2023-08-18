@@ -4,7 +4,7 @@ import user from '../../assets/img/user.svg';
 import add from '../../assets/img/add.svg'
 
 
-function Index({ materia }) {
+function Materias({ materia }) {
     return (
         <div className='container'>
             <header className='materia_title'>
@@ -31,7 +31,7 @@ function Index({ materia }) {
     );
 }
 
-Index.propTypes = {
+Materias.propTypes = {
     materia: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ Index.propTypes = {
         ).isRequired,
     }).isRequired,
 };
-export default Index;
+export default Materias;

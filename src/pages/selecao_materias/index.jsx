@@ -1,13 +1,13 @@
 import './style.css'
 import Selecao from '../../components/select_materials'
-import Header from '../../components/header_materials'
-const index = () => {
+import HeaderSelecao from '../../components/header_selecao/'
+const SelecaoPage = () => {
   return (
     <div className='selecao-materias'>
-        <Header/>
+        <HeaderSelecao/>
         <Selecao/>
     </div>
   )
 }
 
-export default index
+export default SelecaoPage;
