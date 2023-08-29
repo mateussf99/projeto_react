@@ -1,8 +1,90 @@
 .user_container {
-    background-color: var(--white-color-2);
-    justify-content: center;
-    width: 95%;
-    max-width: 103.5rem;
-    height: 85vh;
-    border-radius: 1rem;
+  background-color: var(--white-color-2);
+  justify-content: center;
+  width: 95%;
+  max-width: 103.5rem;
+  border-radius: 1rem;
+  margin: 5rem;
+  padding: 2.5rem;
+  height: 77vh;
+}
+
+.basic_user_data {
+  display: flex;
+  margin: 2.5rem 5rem 2.5rem 5rem;
+}
+
+.basic_user_data img {
+  width: 10rem;
+  height: 10rem;
+}
+
+.basic_user_data div {
+  margin-left: 1.5rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2.5rem;
+}
+
+.pontuacao {
+  font-size: 2.5rem;
+  margin-left: auto;
+}
+
+.user_page_materias {
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: space-between;
+  margin: 2.5rem 5rem 0rem 5rem;
+}
+
+.user_page_materia_list {
+  margin: 0rem 0rem 0rem 7.5rem;
+  font-size: 2.5rem;
+  display: block;
+}
+
+.user_page_QaA_container {
+  display: flex;
+  margin: 2.5rem 5rem 2.5rem 5rem;
+  padding: 2rem;
+  height: 22vh;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+}
+
+.user_page_questions_container {
+  width: 50%;
+}
+
+.user_page_questions_container span {
+  font-size: 2rem;
+}
+
+.user_page_question {
+  margin: 1rem;
+  font-size: 1.25rem;
+}
+
+.user_page_vertical_line {
+  width: 1px;
+  height: auto;
+  background-color: black;
+  margin: 0 10px;
+}
+
+.user_page_button_container {
+  margin: 2.5rem 5rem 2.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_page_button {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--white-color);
 }

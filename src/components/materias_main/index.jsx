@@ -44,4 +44,5 @@ Materias.propTypes = {
         ).isRequired,
     }).isRequired,
 };
+
 export default Materias;
