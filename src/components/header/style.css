@@ -37,9 +37,9 @@
         outline: solid 1px var(--gray-color-1);
     }
 
-    .menu_img {
+    .user_img {
         margin-right: 5rem;
         margin-left: 14.5rem;
-        width: 5rem;
-        height: 5rem;
+        width: 6rem;
+        height: 6rem;
     }
