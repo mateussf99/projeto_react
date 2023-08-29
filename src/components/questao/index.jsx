@@ -46,7 +46,7 @@ function Index({ questao }) {
           >
             <header>
               <img src={user} alt="User" />
-              <h3>{post.title}</h3>
+              <h3>{post.user}</h3>
             </header>
             <p>{post.description}</p>
             <div className="rating">
@@ -69,7 +69,7 @@ Index.propTypes = {
     name: PropTypes.string.isRequired,
     posts: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
+        user: PropTypes.string.isRequired,
         userId: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
       })

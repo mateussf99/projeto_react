@@ -41,19 +41,15 @@ function Index() {
   return (
     <div className="new_question_container">
       <h2 className="new_question_title">Criar Nova Resposta</h2>
-      <form className="new_question_form" onSubmit={handleSubmit}>
-        <div className="question_title">
-          <span className="form_label">Titulo:</span>
-          <input type="text" />
-        </div> <div>
-        <span className="form_label">Descrição:</span>
-        <ReactQuill
-          className="react_quill"
-          value={content}
-          onChange={handleContentChange}
-          modules={modules}
-          formats={formats}
-        />
+      <form className="new_answer_form" onSubmit={handleSubmit}>
+        <div>
+          <ReactQuill
+            className="answer_react_quill"
+            value={content}
+            onChange={handleContentChange}
+            modules={modules}
+            formats={formats}
+          />
         </div>
         <div className="new_question_button_container">
           <button>Comfirmar</button>

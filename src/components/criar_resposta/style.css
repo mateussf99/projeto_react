@@ -10,7 +10,7 @@
   height: 77vh;
 }
 
-.new_question_form {
+.new_answer_form {
   display: block;
   justify-content: center;
   text-align: left;
@@ -61,10 +61,11 @@
   color: var(--white-color);
 }
 
-.react_quill {
+.answer_react_quill {
+  margin-top: 3rem;
   border-radius: 1rem;
   background-color: var(--white-color);
-  height: 57vh;
+  height: 64vh;
 }
 
 .ql-toolbar.ql-snow { border: none !important;}
