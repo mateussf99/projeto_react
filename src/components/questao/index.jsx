@@ -1,26 +1,33 @@
 import './style.css';
 import PropTypes from 'prop-types';
 import user from '../../assets/img/user.svg';
-import add from '../../assets/img/add.svg'
+import add from '../../assets/img/add.svg';
+import back from '../../assets/img/back.svg';
 import up from '../../assets/img/up.svg';
 import down from '../../assets/img/down.svg';
 import report from '../../assets/img/report.svg';
 
-function Materias({ materia }) {
+function Index({ questao }) {
     return (
         <div className='container'>
-            <header className='materia_title'>
+            <header className='questao_title'>
                 <img src={add} />
                 <h2>
-                    {materia.name}
+                    {questao.name}
                 </h2>
-                <div/>
+                <img src={back} />
             </header>
-            <div className='question_container'>
-                {materia.posts.map((post, index) => (
-                    <div key={index} className='question'>
+            <div className='answer_container'>
+                {questao.posts.map((post, index) => (
+                    <div
+                        key={index}
+                        className='question'
+                        style={{
+                            backgroundColor: post.type === 'resposta aceita' ? 'var(--secondary-color)' : 'var(--white-color)'
+                        }}
+                    >
                         <header>
-                            <img src={user} />
+                            <img src={user} alt="User" />
                             <h3>{post.title}</h3>
                         </header>
                         <p>{post.description}</p>
@@ -35,12 +42,13 @@ function Materias({ materia }) {
                 ))}
             </div>
 
+
         </div>
     );
 }
 
-Materias.propTypes = {
-    materia: PropTypes.shape({
+Index.propTypes = {
+    questao: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         posts: PropTypes.arrayOf(
@@ -53,4 +61,4 @@ Materias.propTypes = {
     }).isRequired,
 };
 
-export default Materias;
+export default Index;
