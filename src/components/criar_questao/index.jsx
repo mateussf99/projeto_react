@@ -39,19 +39,22 @@ function Index() {
   };
 
   return (
-    <div className="user_container">
+    <div className="new_question_container">
       <h2 className="new_question_title">Criar Nova Questão</h2>
-      <form onSubmit={handleSubmit}>
-        <span className="form_label">Titulo:</span>
-        <input type="text" />
+      <form className="new_question_form" onSubmit={handleSubmit}>
+        <div className="question_title">
+          <span className="form_label">Titulo:</span>
+          <input type="text" />
+        </div> <div>
         <span className="form_label">Descrição:</span>
         <ReactQuill
-        className="react_quill"
+          className="react_quill"
           value={content}
           onChange={handleContentChange}
           modules={modules}
           formats={formats}
         />
+        </div>
         <div className="new_question_button_container">
           <button>Comfirmar</button>
           <button>Cancelar</button>
