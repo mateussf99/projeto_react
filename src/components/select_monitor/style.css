@@ -44,15 +44,19 @@
     overflow-y: auto;
     
 }
-h3 {
+.arquivo-comprovacao h3 {
     font-size: 2.3rem;
     font-weight: 400;
     color: var(--black-color);
     margin-bottom: 1rem;
+    margin-left: 2.15rem;
 }
 .arquivo-comprovacao{
-    display: flex;
+    
     margin-top: 1rem;
+}
+.arquivo {
+    width: 83rem;
 }
 
 .arquivo input {
@@ -65,11 +69,14 @@ h3 {
     background-color: var(--white-color);
     font-family: var(--regular-font);
     font-size: 1.5rem;
-    margin-left: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+.arquivo img {
+    width: 5rem;
+    height: 5rem;
 }
 .button-container {
     margin-top: 1rem;
@@ -171,6 +178,23 @@ h3 {
         height: 3.1rem;
         font-size: 1.5rem;
     }
+    .arquivo-comprovacao h3 {
+        font-size: 1.7rem;
+        margin-left: 2.15rem;
+    }
+    
+    .arquivo {
+        width: 73rem;
+    }
+    
+    
+    .arquivo label{
+        height: 15rem;
+    }
+    .arquivo img {
+        width: 4rem;
+        height: 4rem;
+    }
 }
 
 @media screen and (max-width: 1280px){
@@ -218,6 +242,18 @@ h3 {
         width: 7.9rem;
         height: 2.9rem;
         font-size: 1.3rem;
+    }
+    .arquivo-comprovacao h3 {
+        font-size: 1.4rem;
+        margin-left: 9rem;
+    }
+    
+    .arquivo {
+        width: 63rem;
+    }
+    .arquivo img {
+        width: 4rem;
+        height: 4rem;
     }
 }
 
