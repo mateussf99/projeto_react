@@ -1,6 +1,6 @@
 import './style.css'
 import logo from '../../assets/img/logo.svg'
-import menu from '../../assets/img/menu.svg'
+import user from '../../assets/img/user.svg'
 
 function Header() {
     return (
@@ -10,7 +10,7 @@ function Header() {
                 <h1 className='logo_text'>InteraCt</h1>
             </div>
             <input className='search_bar' placeholder='Pesquisar'/>
-            <img src={menu} className='menu_img'/>
+            <img src={user} className='user_img'/>
         </div>
     );
 }
