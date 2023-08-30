@@ -44,22 +44,32 @@
     overflow-y: auto;
     
 }
-.arquivo-comprovacao {
+h3 {
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: var(--black-color);
+    margin-bottom: 1rem;
+}
+.arquivo-comprovacao{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin-top: 1rem;
 }
 
 .arquivo input {
-    width: 38.5rem;
-    height: 15rem;
+    display: none;
+}
+.arquivo label{
+    width: 100%;
+    height: 20rem;
     border-radius: 0.5rem;
     background-color: var(--white-color);
-    padding-left: 0.5rem;
     font-family: var(--regular-font);
     font-size: 1.5rem;
     margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 .button-container {
     margin-top: 1rem;

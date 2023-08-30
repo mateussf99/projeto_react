@@ -80,10 +80,11 @@ const Index = () => {
                     ))}
                 </div>
                 <div className='arquivo-comprovacao'>
-                    <p className='arquivo'>
-                        <label>Documento de confirmação:</label>
-                        <input type="file" name="arquivo-comprovacao" id="arquivo-comprovacao" />
-                    </p>
+                    <h3>Documento de confirmação:</h3>
+                    <div className='arquivo'>
+                        <label for='arquivo-comprovacao'>araste aqui seu documento </label>
+                        <input type="file" name="arquivo-comprovacao" id="arquivo-comprovacao"  />
+                    </div>
                 </div>
                 <div className='button-container'>
                     <div className='confirmar'>
