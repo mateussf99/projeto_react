@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 import file_open from '../../assets/img/file_open.svg';
 
@@ -14,12 +15,11 @@ const Index = () => {
         { nome: "organização e arquitetura de computadores", periodo: 2 },
     ];
 
+    const navigate = useNavigate();
+
     const [selectedPeriod, setSelectedPeriod] = useState('');
     const [selectedMaterias, setSelectedMaterias] = useState([]);
 
-    const handlePeriodChange = (event) => {
-        setSelectedPeriod(event.target.value);
-    };
 
     const filteredMaterias = materias.filter(materia => materia.periodo.toString() === selectedPeriod);
 
@@ -55,13 +55,11 @@ const Index = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        console.log('Eu sou:', document.querySelector('input[name="dicente"]:checked').value);
-        console.log('Período:', selectedPeriod);
         console.log('Matérias selecionadas:');
         selectedMaterias.forEach(materia => {
             console.log(materia);
         });
+        navigate("/materia");
     }
 
     return (
@@ -84,7 +82,7 @@ const Index = () => {
                 <div className='arquivo-comprovacao'>
                     <h3>Documento de confirmação:</h3>
                     <div className='arquivo'>
-                        <label for='arquivo-comprovacao'><img src={file_open} alt="" /></label>
+                        <label htmlFor='arquivo-comprovacao'><img src={file_open} alt="" /></label>
                         <input type="file" name="arquivo-comprovacao" id="arquivo-comprovacao"  />
                     </div>
                 </div>
