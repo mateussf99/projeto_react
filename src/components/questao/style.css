@@ -5,47 +5,48 @@
     padding: 2.5rem;
 }
 
-.materia_title {
+.questao_title {
     display: flex;
     justify-content: space-between;
     text-align: center;
     margin-bottom: 2.5rem;
 }
 
-.materia_title h2{
+.questao_title h2{
     font-size: 2.5rem;
 }
 
-.materia_title img {
+.questao_title img {
     height: 48px;
     width: 48px;
 }
 
-.materia_title div {
+.questao_title div {
     width: 48px;
 }
 
-.question_container {
+.answer_container {
     max-height: 89%;
     overflow-y: auto;
     border-radius: 1rem;
 }
 
-.question_container::-webkit-scrollbar {
+.answer_container::-webkit-scrollbar {
+    padding: 1rem;
     width: 1rem;     /* Tamanho do scroll em si */            
   }
   
-  .question_container::-webkit-scrollbar-track {
+  .answer_container::-webkit-scrollbar-track {
     background: none;    /* Fundo do scroll */  
     border-radius: 2rem;      /* Arredondamento do scroll */
   }
   
-  .question_container::-webkit-scrollbar-thumb {
+  .answer_container::-webkit-scrollbar-thumb {
     background-color: var(--secondary-color);    /* Cor do scroll */
     border-radius: 2rem;      /* Arredondamento do scroll */
     border: 0.2rem solid transparent;
   }
-  .question_container::-webkit-scrollbar-thumb:hover{
+  .answer_container::-webkit-scrollbar-thumb:hover{
     background-color: var(--primary-color);  /* Cor do scroll */
   }
 
@@ -74,4 +75,15 @@
     width: 25px;
     height: 25px;
     margin-right: 2rem;
+}
+
+.rating {
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rating img {
+    width: 1.75rem;
+    height: 1.75rem;
 }
