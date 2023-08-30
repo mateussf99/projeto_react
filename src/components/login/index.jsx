@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
 import './style.css';
@@ -8,7 +7,7 @@ const LoginForm = () => {
 
     const handleLogin = (event) => {
         event.preventDefault(); 
-        navigate('/materia');
+        navigate('/selecao');
     };
 
     return (
