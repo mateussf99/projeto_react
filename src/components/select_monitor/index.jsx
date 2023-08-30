@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './style.css';
+import file_open from '../../assets/img/file_open.svg';
+
 
 const Index = () => {
     const materias = [
@@ -82,7 +84,7 @@ const Index = () => {
                 <div className='arquivo-comprovacao'>
                     <h3>Documento de confirmação:</h3>
                     <div className='arquivo'>
-                        <label for='arquivo-comprovacao'>araste aqui seu documento </label>
+                        <label for='arquivo-comprovacao'><img src={file_open} alt="" /></label>
                         <input type="file" name="arquivo-comprovacao" id="arquivo-comprovacao"  />
                     </div>
                 </div>

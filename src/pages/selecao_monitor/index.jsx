@@ -1,7 +1,8 @@
 import Header_selecao_monitor from "../../components/header_selecao_monitor/";
 import Select_monitor from "../../components/select_monitor/";
+import './style.css';
  
-const index = () => {
+const SelecaoMonitorPage = () => {
   return (
     <div className="body-selecao-monitor">
         <Header_selecao_monitor/>
@@ -10,4 +11,4 @@ const index = () => {
   )
 }
 
-export default index
+export default SelecaoMonitorPage
