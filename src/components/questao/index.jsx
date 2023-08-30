@@ -5,18 +5,11 @@ import add from "../../assets/img/add.svg";
 import back from "../../assets/img/back.svg";
 import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
-import report from "../../assets/img/report.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import ReportModal from "../report";
 
 function Index({ questao }) {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openReportModal = () => {
-    setIsOpen(!isOpen);
-  }
 
   const handleGoBack = () => {
     navigate(-1);
@@ -24,7 +17,6 @@ function Index({ questao }) {
 
   return (
     <div className="container">
-      {isOpen ? <ReportModal/> : null}
       <header className="questao_title">
         <a
           href="/criarresposta"
@@ -62,12 +54,7 @@ function Index({ questao }) {
                 <img src={up} />
                 <img src={down} />
               </div>
-              <button
-                onClick={openReportModal}
-                style={{ border: "none", background: "none" }}
-              >
-                <img src={report} />
-              </button>
+             <ReportModal/>
             </div>
           </div>
         ))}

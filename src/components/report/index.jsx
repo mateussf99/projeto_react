@@ -1,31 +1,41 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import report from '../../assets/img/report.svg'
+import close from '../../assets/img/close.svg'
 import "./style.css"
 
-function ReportModal({ closeModal, submitReport }) {
-  const [issueDescription, setIssueDescription] = useState('');
+function ReportModal() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleDescriptionChange = (e) => {
-    setIssueDescription(e.target.value);
-  };
+  const openModal = () => {
+    setIsOpen(true);
+  }
 
-  const handleSubmit = () => {
-    submitReport(issueDescription);
-    setIssueDescription('');
-  };
+  const closeModal = () => {
+    setIsOpen(false);
+  }
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <span className="close" onClick={closeModal}>
-          &times;
-        </span>
-        <h2>Descreva o problema:</h2>
-        <textarea
-          value={issueDescription}
-          onChange={handleDescriptionChange}
-        />
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
+    <div>
+      <button onClick={openModal} style={{ border: "none", background: "inherit" }}>
+        <img src={report} />
+      </button>
+      {isOpen ? (<div className="modal">
+        <div className="modal-content">
+          <div className='close_modal_container'>
+            <button className='close_modal' onClick={closeModal} style={{ border: "none", background: "none" }}>
+              <img src={close} />
+            </button>
+          </div>
+          <form className='modal_form'>
+            <div>
+              <h2>Descreva o problema:</h2>
+              <textarea className='modal_textarea'/>
+            </div>
+            <div className='modal_button_container'><button className='modal_button'>Enviar</button></div>
+            
+          </form>
+        </div>
+      </div>) : null}
     </div>
   );
 }
