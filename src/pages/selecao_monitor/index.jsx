@@ -3,7 +3,7 @@ import Select_monitor from "../../components/select_monitor/";
  
 const index = () => {
   return (
-    <div>
+    <div className="body-selecao-monitor">
         <Header_selecao_monitor/>
         <Select_monitor/>
     </div>
