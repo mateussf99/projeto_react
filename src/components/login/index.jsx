@@ -1,10 +1,18 @@
-import logo from '../../assets/img/logo.svg'
-import './style.css'
+import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/img/logo.svg';
+import './style.css';
 
-const index = () => {
+const LoginForm = () => {
+    const navigate = useNavigate();
+
+    const handleLogin = (event) => {
+        event.preventDefault(); 
+        navigate('/selecao');
+    };
+
     return (
         <div className="forms-login">
-            <form action="#" method="post" target="_blank">
+            <form onSubmit={handleLogin}>
                 <div className="img-logo">
                     <img src={logo} alt="lampada da logo" />
                 </div>
@@ -24,7 +32,7 @@ const index = () => {
                 </p>
             </form>
         </div>
-    )
+    );
 }
 
-export default index
+export default LoginForm;

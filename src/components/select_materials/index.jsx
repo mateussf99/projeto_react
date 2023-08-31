@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const Index = () => {
@@ -11,6 +12,8 @@ const Index = () => {
         { nome: "geometria analitica", periodo: 2 },
         { nome: "organização e arquitetura de computadores", periodo: 2 },
     ];
+
+    const navigate = useNavigate();
 
     const [selectedPeriod, setSelectedPeriod] = useState('');
     const [selectedMaterias, setSelectedMaterias] = useState([]);
@@ -60,6 +63,14 @@ const Index = () => {
         selectedMaterias.forEach(materia => {
             console.log(materia);
         });
+
+        if (document.querySelector('input[name="dicente"]:checked').value === "Aluno") {
+            navigate("/materia")
+        }
+        if (document.querySelector('input[name="dicente"]:checked').value === "Monitor") {
+            navigate("/selecaomonitor")
+        }
+
     }
 
     return (
