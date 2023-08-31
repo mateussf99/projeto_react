@@ -1,7 +1,18 @@
 import './style.css';
 import PropTypes, { string } from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 function Index({ usuario }) {
+    const navigate = useNavigate();
+
+    const mudarMaterias = () => {
+        navigate("/selecao");
+    }
+
+    const monitoria = () => {
+        navigate("/selecaomonitor");
+    }
+
     return (
         <div className='user_container'>
             <div className='basic_user_data'>
@@ -15,7 +26,7 @@ function Index({ usuario }) {
             </div>
             <div className='user_page_materias'>
                 <span>Materias:</span>
-                <button className='user_page_button'>Alterar Matérias</button>
+                <button onClick={ mudarMaterias } className='user_page_button'>Alterar Matérias</button>
             </div>
             <div className='user_page_materia_list'>
                 <ul style={{ listStyleType: 'none', padding: 0 }}>
@@ -45,7 +56,7 @@ function Index({ usuario }) {
             </div>
             <div className='user_page_button_container'>
                 <button className='user_page_button'>Alterar Senha</button>
-                <button className='user_page_button'>Voluntariar-se à Moderação</button>
+                <button onClick={ monitoria } className='user_page_button'>Voluntariar-se à Moderação</button>
             </div>
         </div>
     );

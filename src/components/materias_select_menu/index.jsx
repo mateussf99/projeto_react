@@ -1,7 +1,20 @@
 import PropTypes, { string } from 'prop-types';
 import './style.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function MateriasSelectMenu ({ selected, list }) {
+    const navigate = useNavigate();
+
+    const [selectedMateria, setSelectedMateria] = useState(selected);
+
+    const changeSelected = (materia) => {
+        setSelectedMateria(materia);
+        navigate("/materia")
+
+    }
+
+
     return (
         <div className='materia_selector'>
             <header className='title'>
@@ -9,8 +22,8 @@ function MateriasSelectMenu ({ selected, list }) {
             </header>
             <div>
                 {list.map((materia, index) => (
-                    <button className='materia_list' key={index}>
-                        {materia === selected ? <span className='selected' >{materia}</span>: <span className='materia'>{materia}</span>}
+                    <button onClick={ () => changeSelected(materia) } className='materia_list' key={index}>
+                        {materia === selectedMateria ? <span className='selected' >{materia}</span>: <span className='materia'>{materia}</span>}
                     </button>
                 ))}
             </div>
