@@ -17,7 +17,7 @@ const Index = () => {
 
     const navigate = useNavigate();
 
-    const [selectedPeriod, setSelectedPeriod] = useState('');
+    const selectedPeriod = '';
     const [selectedMaterias, setSelectedMaterias] = useState([]);
 
 

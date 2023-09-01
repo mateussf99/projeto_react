@@ -70,8 +70,13 @@
     font-size: 1.5rem;
 }
 
-.question img {
-    width: 25px;
-    height: 25px;
-    margin-right: 2rem;
+.vote {
+    margin-right: 1rem;
+    width: 2rem;
+    height: 2rem;
 }
+
+.date {
+    margin-left: auto;
+}
+

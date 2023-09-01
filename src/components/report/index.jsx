@@ -6,18 +6,20 @@ import "./style.css"
 function ReportModal() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
+  const openModal = (event) => {
+    event.stopPropagation();
     setIsOpen(true);
   }
 
-  const closeModal = () => {
+  const closeModal = (event) => {
+    event.stopPropagation();
     setIsOpen(false);
   }
 
   return (
     <div>
-      <button onClick={openModal} style={{ border: "none", background: "inherit" }}>
-        <img src={report} />
+      <button className="report_img" onClick={openModal} style={{ border: "none", background: "inherit" }}>
+        <img className="report_img" src={report} />
       </button>
       {isOpen ? (<div className="modal">
         <div className="modal-content">
