@@ -13,16 +13,31 @@
     align-items: center;
     justify-content: center;
 }
-.logo-cadastro img {
-    width: 60rem;
-    height: 30rem;
+.logo-cadastro p {
+  font-size: 2.5rem;
+  font-family: var(--regular-font);
+  color: var(--black-color);
+  text-align: center;
+  padding: 5rem;
 }
-.logo-cadastro h2 {
-    font-size: 10rem;
-    font-family: var(--regular-font);
-    color: var(--black-color);
-    padding: 0 21rem 0 21rem;
-    font-weight: 500;
+.logo-name-cadastro {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-name-cadastro img {
+  width: 20rem;
+  height: 20rem;
+}
+.logo-name-cadastro h2 {
+  font-size: 10rem;
+  font-family: var(--regular-font);
+  color: var(--black-color);
+  margin-right: 5rem;
+  text-align: center;
+  font-weight: 500;
 }
 .section-cadastro{
     width: 88rem;
@@ -33,24 +48,49 @@
     justify-content: center;
 }
 @media  screen and (max-width: 1440px) {
-  .principal {
-    display: flex;
-  }
 
   .logo-cadastro {
     width: 95rem;
     height: auto;
   }
 
-  .logo-cadastro img {
-    width: 25rem;
-    height: 25rem;
+  .logo-name-cadastro img {
+    width: 18rem;
+    height: 18rem;
     padding-bottom: 0;
   }
 
-  .logo-cadastro h2 {
+  .logo-name-cadastro h2 {
     font-size: 7rem;
-    padding: 1rem;
+  }
+
+  .section-cadastro {
+      width: 80rem;
+      padding-left: 0;
+  }
+}
+
+@media  screen and (max-width: 1280px) {
+
+  .logo-cadastro {
+    width: 95rem;
+    height: auto;
+  }
+
+  .logo-cadastro p {
+    font-size: 1.5rem;
+    padding: 3rem;
+    
+  }
+
+  .logo-name-cadastro img {
+    width: 15rem;
+    height: 15rem;
+    padding-bottom: 0;
+  }
+
+  .logo-name-cadastro h2 {
+    font-size: 7rem;
   }
 
   .section-cadastro {
