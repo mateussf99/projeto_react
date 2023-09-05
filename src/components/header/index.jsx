@@ -1,6 +1,7 @@
 import "./style.css";
 import logo from "../../assets/img/logo.svg";
 import user from "../../assets/img/user.svg";
+import logout from "../../assets/img/logout.svg";
 
 function Header() {
   return (
@@ -14,9 +15,14 @@ function Header() {
         </a>
       </div>
       <input className="search_bar" placeholder="Pesquisar" />
-      <a href="/user" style={{ textDecoration: "none", color: "inherit" }}>
-        <img src={user} className="user_img" />
-      </a>
+      <div>
+        <a href="/user" style={{ textDecoration: "none", color: "inherit" }}>
+          <img src={user} className="user_img" />
+        </a>
+        <a href="/">
+          <img className='logout_img' src={logout} />
+        </a>
+      </div>
     </div>
   );
 }
