@@ -8,6 +8,8 @@ import Questao from "./pages/questao/";
 import CriarQuestao from "./pages/criar_questao";
 import CriarResposta from "./pages/criar_resposta";
 import UserPage from "./pages/user_page/";
+import AdminPage from "./pages/Admin";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
         <Route path="/criarresposta" element={<CriarResposta  />} />
         <Route path="/questao" element={<Questao />} />
         <Route path="/user" element={<UserPage />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,15 @@
+.admin_container {
+  background-color: var(--white-color-2);
+  justify-content: center;
+  text-align: center;
+  width: 95%;
+  max-width: 103.5rem;
+  border-radius: 1rem;
+  margin: 5rem;
+  padding: 2.5rem;
+  height: 77vh;
+}
+
+.admin_header {
+  font-size: 2rem;
+}
