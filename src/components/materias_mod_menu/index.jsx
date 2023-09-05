@@ -1,4 +1,4 @@
-import PropTypes, { string } from 'prop-types'; 
+import PropTypes, { string } from 'prop-types';
 import './style.css';
 
 function MateriasModMenu({ questions }) {
@@ -9,11 +9,11 @@ function MateriasModMenu({ questions }) {
             </header>
             <div>
                 <div className='mod_list'>
-                    <div className='mod_list_title'><span>Perguntas não</span><br></br><span> Respondidas</span></div>
+                    <div className='mod_list_title'><span>Perguntas não</span><br /><span> Respondidas</span></div>
                     <span className='mod_notification'>2</span>
                 </div>
                 <ul className='mod_list_container'>
-                    {questions.map((question, index) => { 
+                    {questions.map((question, index) => {
                         return <li className='mod_list_span' key={index}>{question}</li>;
                     })}
                 </ul>
