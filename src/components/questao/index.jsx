@@ -47,12 +47,13 @@ function Index({ questao }) {
             <header>
               <img src={user} alt="User" />
               <h3>{post.user}</h3>
+              <span className="date">{post.date}</span>
             </header>
             <p>{post.description}</p>
             <div className="rating">
               <div>
-                <img src={up} />
-                <img src={down} />
+                <img className='vote' src={up} />
+                <img className='vote' src={down} />
               </div>
              <ReportModal/>
             </div>
@@ -72,6 +73,7 @@ Index.propTypes = {
         user: PropTypes.string.isRequired,
         userId: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
       })
     ).isRequired,
   }).isRequired,

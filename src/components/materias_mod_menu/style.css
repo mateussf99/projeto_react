@@ -1,0 +1,59 @@
+.materia_mod_menu {
+    background-color: var(--white-color-2);
+    margin: 5rem 5rem 5rem 0rem;
+    border-radius: 1rem;
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 2.5rem 7rem 5rem 7rem;
+}
+
+.title h2{
+    font-size: 2.5rem;
+}
+
+.mod_list {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    border-style: none;
+    width: 100%;
+    background-color: transparent;
+    padding-bottom:  1rem;
+
+}
+
+.mod_list_container{
+    display: block;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-style: none;
+    width: 100%;
+    background-color: transparent;
+    padding-bottom:  1rem;
+    list-style-type: none;
+}
+
+.mod_list_span{
+    text-align: center;
+}
+
+.mod_list_title {
+    text-align: center;
+}
+
+.mod_notification {
+    margin-top: 2.3rem;
+    margin-left: 1.5rem;
+    height: 16px;
+    width: 16px;
+    border-radius: 8PX;
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}

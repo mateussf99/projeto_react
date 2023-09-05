@@ -4,7 +4,7 @@ import user from "../../assets/img/user.svg";
 import add from "../../assets/img/add.svg";
 import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
-import report from "../../assets/img/report.svg";
+import ReportModal from "../report";
 import { useNavigate } from "react-router-dom"
 
 function Materias({ materia }) {
@@ -13,6 +13,12 @@ function Materias({ materia }) {
   const goToQuestion = () => {
     navigate("/questao");
   }
+
+  const goToCreateAnswer = (event) => {
+    event.stopPropagation();
+    navigate("/criarresposta")
+  }
+
   return (
     <div className="container">
       <header className="materia_title">
@@ -31,14 +37,16 @@ function Materias({ materia }) {
             <header>
               <img src={user} />
               <h3>{post.title}</h3>
+              <span className="date">{post.date}</span>
             </header>
             <p>{post.description}</p>
             <div className="rating">
               <div>
-                <img src={up} />
-                <img src={down} />
+                <img className='vote' src={up} />
+                <img className='vote' src={down} />
+                <button style={{ border: "none", background: "none" }} onClick={goToCreateAnswer}><img src={add} /></button>
               </div>
-              <img src={report} />
+              <ReportModal />
             </div>
           </div>
         ))}
@@ -56,6 +64,7 @@ Materias.propTypes = {
         title: PropTypes.string.isRequired,
         userId: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
       })
     ).isRequired,
   }).isRequired,

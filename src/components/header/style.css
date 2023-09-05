@@ -38,8 +38,15 @@
     }
 
     .user_img {
-        margin-right: 5rem;
-        margin-left: 14.5rem;
-        width: 6rem;
-        height: 6rem;
+        margin-left: 11.5rem;
+        margin-bottom: 0.25rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .logout_img {
+        margin: 1.75rem 1rem 1.25rem 1rem;
+        width: 3rem;
+        height: 3rem;
+
     }
