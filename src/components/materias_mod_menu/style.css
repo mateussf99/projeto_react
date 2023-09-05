@@ -16,10 +16,10 @@
     font-size: 2.5rem;
 }
 
-.mod_list {
+.mod_types {
     display: flex;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.01rem;
     border-style: none;
     width: 100%;
     background-color: transparent;
