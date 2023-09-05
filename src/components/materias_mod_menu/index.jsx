@@ -8,7 +8,7 @@ function MateriasModMenu({ questions }) {
                 <h2>Moderação</h2>
             </header>
             <div>
-                <div className='mod_list'>
+                <div className='mod_types'>
                     <div className='mod_list_title'><span>Perguntas não</span><br /><span> Respondidas</span></div>
                     <span className='mod_notification'>2</span>
                 </div>
@@ -18,7 +18,7 @@ function MateriasModMenu({ questions }) {
                     })}
                 </ul>
             </div>
-            <div className='mod_list'>
+            <div className='mod_types'>
                 <span>Problemas Reportados</span>
             </div>
         </div>
