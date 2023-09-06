@@ -21,10 +21,6 @@
   width: 48px;
 }
 
-.questao_title div {
-  width: 48px;
-}
-
 .answer_container {
   max-height: 89%;
   overflow-y: auto;
@@ -80,4 +76,34 @@
   padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
+}
+
+.create_answer_header {
+  display: flex;
+  align-items: middle;
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  width: 150px;
+}
+
+.create_answer_header span {
+  margin-left: 1rem;
+  margin-top: 1.25rem;
+}
+
+.back_header {
+  padding-left: 57px;
+  display: flex;
+  align-items: middle;
+  border: none; 
+  outline: none;
+  background: none;
+  font-size: 2rem;
+  width: 150px;
+}
+
+.back_header span {
+  margin-top: 1.25rem;
+  margin-right: 1rem;
 }

@@ -21,14 +21,14 @@
     width: 48px;
 }
 
-.materia_title div {
-    width: 48px;
-}
-
 .question_container {
     max-height: 89%;
     overflow-y: auto;
     border-radius: 1rem;
+}
+
+.mat_header_empty_div {
+   min-width: 150px;
 }
 
 .question_container::-webkit-scrollbar {
