@@ -1,9 +1,19 @@
-import "./style.css";
-import React, { useState } from "react";
+import { useState } from 'react';
+import add from '../../assets/img/add.svg'
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import "./style.css"
 
-function Index() {
+function CriarRespostaModal() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+
   const [content, setContent] = useState("");
 
   const modules = {
@@ -39,7 +49,18 @@ function Index() {
   };
 
   return (
-    <div className="new_question_container">
+    <div>
+      <button
+        onClick={openModal}
+        className="create_answer_header"
+      >
+
+        <img src={add} />
+        <span>Responder</span>
+      </button>
+      {isOpen ? (<div className="modal">
+
+      <div className="new_question_container">
       <h2 className="new_question_title">Criar Nova Resposta</h2>
       <form className="new_answer_form" onSubmit={handleSubmit}>
         <div>
@@ -53,11 +74,14 @@ function Index() {
         </div>
         <div className="new_question_button_container">
           <button>Comfirmar</button>
-          <button>Cancelar</button>
+          <button onClick={ closeModal }>Cancelar</button>
         </div>
       </form>
+    </div>
+
+      </div>) : null}
     </div>
   );
 }
 
-export default Index;
+export default CriarRespostaModal;

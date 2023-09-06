@@ -1,12 +1,12 @@
 import "./style.css";
 import PropTypes from "prop-types";
 import user from "../../assets/img/user.svg";
-import add from "../../assets/img/add.svg";
 import back from "../../assets/img/back.svg";
 import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
 import { useNavigate } from "react-router-dom";
 import ReportModal from "../report";
+import CriarRespostaModal from "../criar_resposta_modal";
 
 function Index({ questao }) {
   const navigate = useNavigate();
@@ -18,17 +18,20 @@ function Index({ questao }) {
   return (
     <div className="container">
       <header className="questao_title">
-        <a
+     {/*    <a
           href="/criarresposta"
-          style={{ textDecoration: "none", color: "inherit" }}
+          className="create_answer_header"
         >
           <img src={add} />
-        </a>
+          <span>Responder</span>
+        </a> */}
+        <CriarRespostaModal/>
         <h2>{questao.name}</h2>
         <button
           onClick={handleGoBack}
-          style={{ border: "none", background: "none" }}
+          className="back_header"
         >
+          <span>Voltar</span>
           <img src={back} />
         </button>
       </header>
@@ -55,7 +58,7 @@ function Index({ questao }) {
                 <img className='vote' src={up} />
                 <img className='vote' src={down} />
               </div>
-             <ReportModal/>
+              <ReportModal />
             </div>
           </div>
         ))}

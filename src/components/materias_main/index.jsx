@@ -6,6 +6,7 @@ import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
 import ReportModal from "../report";
 import { useNavigate } from "react-router-dom"
+import CriarQuestaoModal from "../criar_questao_modal";
 
 function Materias({ materia }) {
   const navigate = useNavigate();
@@ -22,14 +23,9 @@ function Materias({ materia }) {
   return (
     <div className="container">
       <header className="materia_title">
-        <a
-          href="/criarquestao"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <img src={add} />
-        </a>
+        <CriarQuestaoModal/>
         <h2>{materia.name}</h2>
-        <div />
+        <div className="mat_header_empty_div"/>
       </header>
       <div onClick={goToQuestion} className="question_container">
         {materia.posts.map((post, index) => (
