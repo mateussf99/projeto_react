@@ -21,6 +21,7 @@ function Header() {
         </a>
         <a href="/">
           <img className='logout_img' src={logout} />
+          
         </a>
       </div>
     </div>

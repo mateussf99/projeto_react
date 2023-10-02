@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./style.css";
+import ManageDisc from "../manage_disc";
 
 function Admin() {
   const tabs = ["Gerenciar Moderadores", "Gerenciar Disciplina", "Registro de auditoria"];
@@ -20,8 +21,13 @@ function Admin() {
           </h2>
         ))}
       </div>
-      <div className={selectedTab === 0 ? "left_tab" : selectedTab === 1 ? "middle_tab" : "right_tab"}>
-          teste
+      <div>
+        {selectedTab === 0 ? <div className="left_tab">
+
+        </div> : selectedTab === 1 ? <div className="middle_tab">
+          <ManageDisc/>
+        </div> : <div className="right_tab">
+        </div>}
       </div>
     </div>
   );

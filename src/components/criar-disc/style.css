@@ -1,0 +1,70 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.create_disc_header {
+  display: flex;
+  align-items: middle;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.create_disc_header span {
+  margin-top: 1.25rem;
+  margin-left: 1rem;
+}
+
+.new_disc_container {
+  background-color: var(--white-color-2);
+  justify-content: center;
+  text-align: center;
+  max-width: 103.5rem;
+  border-radius: 1rem;
+  margin: 5rem;
+  padding: 2.5rem;
+}
+
+.new_disc_form {
+  display: block;
+  justify-content: center;
+  text-align: left;
+}
+
+.new_disc_title {
+  font-size: 2rem;
+}
+
+.disc_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.disc_title span {
+  margin-right: 2rem;
+}
+.disc_title input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  height: 3rem;
+}
+
+.disc_label {
+  font-size: 1.75rem;
+}
+
