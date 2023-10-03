@@ -14,13 +14,14 @@ const Index = () => {
     event.preventDefault();
 
     const user = {
-      username: nome.current.value,
-      email: email.current.value,
+      login: email.current.value,
       password: password.current.value,
+      name: nome.current.value,
+      role: "USER",
     };
 
     try {
-      const response = await fetch("http://localhost:8080/users/register", {
+      const response = await fetch("http://localhost:8080/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

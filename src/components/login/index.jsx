@@ -5,10 +5,36 @@ import './style.css';
 const LoginForm = () => {
     const navigate = useNavigate();
 
-    const handleLogin = (event) => {
-        event.preventDefault(); 
-        navigate('/selecao');
-    };
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        const loginData = {
+            login: "teste@teste.com",
+            password: "123456", 
+        }
+        try {
+          const response = await fetch('http://localhost:8080/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData),
+          });
+    
+          if (response.ok) {
+            //const data = await response.json();
+            //const token = data.token; 
+            navigate("/materias");
+          } else {
+            console.log(response);
+            console.error('Login failed');
+          }
+        } catch (error) {
+          console.error('An error occurred:', error);
+        }
+      };
+
+      
+
 
     return (
         <div className="forms-login">

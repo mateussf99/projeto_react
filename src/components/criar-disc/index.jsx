@@ -15,8 +15,9 @@ function CriarDisc() {
 
   const newDisc = useRef();
 
-  const HandleClick = () => {
-    const discData = newDisc.current.value();
+  const HandleClick = (event) => {
+    event.preventDefault();
+    const discData = newDisc.current.value;
     
     const dataToSend = {
       name: discData,
@@ -62,10 +63,10 @@ function CriarDisc() {
             <form className="new_disc_form">
               <div className="disc_title">
                 <span className="form_label">Nome da Disciplina:</span>
-                <input type="text" />
+                <input type="text" ref={newDisc}/>
               </div> 
               <div className="new_question_button_container">
-                <button>Comfirmar</button>
+                <button onClick={HandleClick}>Comfirmar</button>
                 <button onClick={closeModal}>Cancelar</button>
               </div>
             </form>
