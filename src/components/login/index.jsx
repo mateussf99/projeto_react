@@ -1,15 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg';
 import './style.css';
+import { useRef } from 'react';
 
 const LoginForm = () => {
     const navigate = useNavigate();
+    const login = useRef();
+    const password = useRef();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         const loginData = {
-            login: "teste@teste.com",
-            password: "123456", 
+            login: login.current.value,
+            password: password.current.value, 
         }
         try {
           const response = await fetch('http://localhost:8080/auth/login', {
@@ -23,7 +26,7 @@ const LoginForm = () => {
           if (response.ok) {
             //const data = await response.json();
             //const token = data.token; 
-            navigate("/materias");
+            navigate("/materia");
           } else {
             console.log(response);
             console.error('Login failed');
@@ -44,11 +47,11 @@ const LoginForm = () => {
                 </div>
                 <p>
                     <label>Email: </label>
-                    <input type="email" id="email" name="email" placeholder="email@exemp.com" required />
+                    <input type="email" ref={login} name="email" placeholder="email@exemp.com" required />
                 </p>
                 <p>
                     <label >Senha: </label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+                    <input type="password" ref={password} name="password" placeholder="Digite sua senha" required />
                 </p>
                 <p>
                     <button type="submit">Login</button>

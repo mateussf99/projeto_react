@@ -47,9 +47,10 @@
 }
 
 .mod_notification {
-    margin-top: 2.3rem;
+    padding-top: 2px;
+    margin-top: .3rem;
     margin-left: 1.5rem;
-    height: 16px;
+    height: 14px;
     width: 16px;
     border-radius: 8PX;
     background-color: red;
