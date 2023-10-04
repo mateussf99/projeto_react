@@ -3,9 +3,11 @@ import Header from '../../components/header';
 import Materias from '../../components/materias_main/';
 import MateriasSelectMenu from '../../components/materias_select_menu/';
 import MateriasModMenu from '../../components/materias_mod_menu';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Materia = () => {
-  const user = {type: "mod"}
+  const user = {type: "user"}
   const unAnsweredQuestions = ["Título Pergunta 2", "Título Pergunta 3"]
   const selectedMateria = 
     {
@@ -56,7 +58,33 @@ const Materia = () => {
         }
       ]
     };
-  const listaMaterias = ["Cálculo Diferencial e integral", "Computação Sociedade e Ética", "Lógica Aplicada a Computação", "Matemática Discreta", "Programação 1"];
+  const [listaMaterias, setListaMaterias] = useState([]);
+  const navigate = useNavigate();
+  const username = JSON.parse(localStorage.getItem('username'));
+  useEffect(() => {
+    fetchUserBoards();
+  }, []);
+  const fetchUserBoards = () => {
+    fetch(`http://localhost:8080/users/${username}/boards`, {
+      method: 'GET',
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json()
+      })
+      .then(data => {
+        if(data.length === 0) {
+          navigate("/selecao");
+        }
+        console.log(data);
+        setListaMaterias(data.map(board => board.name));
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
 
   return (
     <div>

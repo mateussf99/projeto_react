@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 import CriarQuestaoModal from "../criar_questao_modal";
 
 function Materias({ materia }) {
+
   const navigate = useNavigate();
 
   const goToQuestion = () => {

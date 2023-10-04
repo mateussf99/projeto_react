@@ -8,22 +8,20 @@ import Questao from "./pages/questao/";
 import UserPage from "./pages/user_page/";
 import AdminPage from "./pages/Admin";
 
-
-
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/selecao" element={<SelecaoPage />} />
-        <Route path="/selecaomonitor" element={<SelecaoMonitor />} />
-        <Route path="/materia" element={<Materias />} />
-        <Route path="/questao" element={<Questao />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/selecao" element={<SelecaoPage />} />
+          <Route path="/selecaomonitor" element={<SelecaoMonitor />} />
+          <Route path="/materia" element={<Materias />} />
+          <Route path="/questao" element={<Questao />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </Router>
   );
 }
 

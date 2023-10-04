@@ -1,77 +1,86 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const Index = () => {
-    const materias = [
-        { nome: "calculo diferencial e integral", periodo: 1 },
-        { nome: "logica", periodo: 1 },
-        { nome: "programção 1", periodo: 1 },
-        { nome: "banco de dados", periodo: 2 },
-        { nome: "estrutura de dados", periodo: 2 },
-        { nome: "geometria analitica", periodo: 2 },
-        { nome: "organização e arquitetura de computadores", periodo: 2 },
-    ];
-
+    const username = JSON.parse(localStorage.getItem('username'));
     const navigate = useNavigate();
+    const [boards, setBoards] = useState([])
 
-    const [selectedPeriod, setSelectedPeriod] = useState('');
+    useEffect(() => {
+        fetchBoards();
+    }, []);
+
+    const fetchBoards = () => {
+        fetch('http://localhost:8080/boards', {
+            method: 'GET',
+        })
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json()
+            })
+            .then(data => {
+                setBoards(data);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    }
+
+
     const [selectedMaterias, setSelectedMaterias] = useState([]);
 
-    const handlePeriodChange = (event) => {
-        setSelectedPeriod(event.target.value);
-    };
-
-    const filteredMaterias = materias.filter(materia => materia.periodo.toString() === selectedPeriod);
-
-    const selectedMateriasPeriodo = filteredMaterias.map(materia => materia.nome);
-
-    const [inputValue, setInputValue] = useState('');
-    const [filteredMateriasTodas, setFilteredMateriasTodas] = useState(materias);
-
-    const handleMateriasInputChange = (event) => {
-        const inputValue = event.target.value;
-        setInputValue(inputValue);
-
-        const filteredMaterias = materias.filter(materia =>
-            materia.nome.toLowerCase().includes(inputValue.toLowerCase())
-        );
-
-        setFilteredMateriasTodas(filteredMaterias);
-    };
-
     const handleMateriaCheckboxChange = (event) => {
-        const materiaNome = event.target.value;
+        const materiaId = event.target.value;
 
+        // Check if the checkbox is checked or unchecked
         if (event.target.checked) {
-            setSelectedMaterias([...selectedMaterias, materiaNome]);
+            // If checked, add the materiaId to the selectedMaterias array
+            setSelectedMaterias([...selectedMaterias, materiaId]);
         } else {
-            setSelectedMaterias(selectedMaterias.filter(materia => materia !== materiaNome));
+            // If unchecked, remove the materiaId from the selectedMaterias array
+            setSelectedMaterias(selectedMaterias.filter(id => id !== materiaId));
         }
     };
 
-    const filteredMateriasTodasFiltered = filteredMateriasTodas.filter(materia =>
-        !selectedMateriasPeriodo.includes(materia.nome)
-    );
+    const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log('Matérias selecionadas:');
+    const data = {
+        username: username,
+        boardIds: selectedMaterias.map(str => parseInt(str, 10)),
+    }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    console.log(data);
 
-        console.log('Eu sou:', document.querySelector('input[name="dicente"]:checked').value);
-        console.log('Período:', selectedPeriod);
-        console.log('Matérias selecionadas:');
-        selectedMaterias.forEach(materia => {
-            console.log(materia);
+    try {
+        const response = await fetch('http://localhost:8080/users/addboards', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
         });
 
-        if (document.querySelector('input[name="dicente"]:checked').value === "Aluno") {
-            navigate("/materia")
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log(responseData);
+            if (document.querySelector('input[name="dicente"]:checked').value === "Aluno") {
+                navigate("/materia")
+            }
+            if (document.querySelector('input[name="dicente"]:checked').value === "Monitor") {
+                navigate("/selecaomonitor")
+            }
+        } else {
+            console.log(response);
         }
-        if (document.querySelector('input[name="dicente"]:checked').value === "Monitor") {
-            navigate("/selecaomonitor")
-        }
-
+    } catch (error) {
+        console.error('An error occurred:', error);
     }
+}
 
     return (
         <div className='forms-materias'>
@@ -86,7 +95,7 @@ const Index = () => {
                 </p>
                 <p className='periodo'>
                     <label>Período:</label>
-                    <select onChange={handlePeriodChange} value={selectedPeriod} required>
+                    <select>
                         <option value="" disabled>Escolha o período</option>
                         <option value="1">1° Período</option>
                         <option value="2">2° Período</option>
@@ -99,22 +108,22 @@ const Index = () => {
                     </select>
                 </p>
                 <p className='materias-periodo'>
-                    {filteredMaterias.map((materia, index) => (
+                    {/* {boards.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} checked={selectedMaterias.includes(materia.nome)} onChange={handleMateriaCheckboxChange} />
-                            {materia.nome}
+                            <input type="checkbox" name="materiaCheckbox" onChange={handleMateriaCheckboxChange} value={materia.id}/>
+                            {materia.name}
                         </label>
-                    ))}
+                    ))} */}
                 </p>
                 <p className='todas'>
                     <label>Todas as matérias:</label>
-                    <input type="text" id="materias" name="materias" placeholder="Matéria" value={inputValue} onChange={handleMateriasInputChange} />
+                    <input type="text" id="materias" name="materias" placeholder="Matéria" />
                 </p>
                 <div className='materias-todas'>
-                    {filteredMateriasTodasFiltered.map((materia, index) => (
+                    {boards.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" value={materia.nome} checked={selectedMaterias.includes(materia.nome)} onChange={handleMateriaCheckboxChange} />
-                            {materia.nome}
+                            <input type="checkbox" name="materiaCheckbox" onChange={handleMateriaCheckboxChange} value={materia.id} />
+                            {materia.name}
                         </label>
                     ))}
                 </div>

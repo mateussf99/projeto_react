@@ -24,7 +24,9 @@ const LoginForm = () => {
           });
     
           if (response.ok) {
-            //const data = await response.json();
+            const data = await response.json();
+            localStorage.setItem('username', JSON.stringify(data.username));
+            console.log(data);
             //const token = data.token; 
             navigate("/materia");
           } else {

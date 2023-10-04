@@ -15,8 +15,7 @@ function CriarDisc() {
 
   const newDisc = useRef();
 
-  const HandleClick = (event) => {
-    event.preventDefault();
+  const HandleClick = () => {
     const discData = newDisc.current.value;
     
     const dataToSend = {
