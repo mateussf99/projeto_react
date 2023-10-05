@@ -37,7 +37,7 @@ function ManageDisc () {
         <div className="disc_title">Todas as Disciplinas</div>
         <div>
             {boards.map((board, index) => (
-                <div key={index}>{board.name}</div>
+                <div className="boards_font_style" key={index}>{board.name}</div>
             ))};
         </div>
     </div>);

@@ -33,6 +33,7 @@ const Index = () => {
 
       if (response.ok) {
         console.log("Cadastro successful");
+        navigate("/");
       } else {
         console.log("Cadastro failed");
       }

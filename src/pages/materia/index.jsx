@@ -65,6 +65,9 @@ const Materia = () => {
     fetchUserBoards();
   }, []);
   const fetchUserBoards = () => {
+    if (username === "none") {
+      navigate("/");
+    }
     fetch(`http://localhost:8080/users/${username}/boards`, {
       method: 'GET',
     })

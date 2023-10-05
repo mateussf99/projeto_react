@@ -38,8 +38,6 @@ const LoginForm = () => {
         }
       };
 
-      
-
 
     return (
         <div className="forms-login">
