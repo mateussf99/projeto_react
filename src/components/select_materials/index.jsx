@@ -6,6 +6,8 @@ const Index = () => {
     const username = JSON.parse(localStorage.getItem('username'));
     const navigate = useNavigate();
     const [boards, setBoards] = useState([])
+    const [selectedPeriod, setSelectedPeriod] = useState("0");
+    const [selectedMaterias, setSelectedMaterias] = useState([]);
 
     useEffect(() => {
         fetchBoards();
@@ -30,57 +32,59 @@ const Index = () => {
             });
     }
 
-
-    const [selectedMaterias, setSelectedMaterias] = useState([]);
-
     const handleMateriaCheckboxChange = (event) => {
         const materiaId = event.target.value;
 
-        // Check if the checkbox is checked or unchecked
         if (event.target.checked) {
-            // If checked, add the materiaId to the selectedMaterias array
             setSelectedMaterias([...selectedMaterias, materiaId]);
         } else {
-            // If unchecked, remove the materiaId from the selectedMaterias array
             setSelectedMaterias(selectedMaterias.filter(id => id !== materiaId));
         }
+
+        const checkboxes = document.querySelectorAll(`input[name="materiaCheckbox"][value="${materiaId}"]`);
+
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = event.target.checked;
+        });
     };
 
     const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log('Matérias selecionadas:');
-    const data = {
-        username: username,
-        boardIds: selectedMaterias.map(str => parseInt(str, 10)),
-    }
-
-    console.log(data);
-
-    try {
-        const response = await fetch('http://localhost:8080/users/addboards', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-            const responseData = await response.json();
-            console.log(responseData);
-            if (document.querySelector('input[name="dicente"]:checked').value === "Aluno") {
-                navigate("/materia")
-            }
-            if (document.querySelector('input[name="dicente"]:checked').value === "Monitor") {
-                navigate("/selecaomonitor")
-            }
-        } else {
-            console.log(response);
+        event.preventDefault();
+        console.log('Matérias selecionadas:');
+        const data = {
+            username: username,
+            boardIds: selectedMaterias.map(str => parseInt(str, 10)),
         }
-    } catch (error) {
-        console.error('An error occurred:', error);
+
+        console.log(data);
+
+        try {
+            const response = await fetch('http://localhost:8080/users/addboards', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log(responseData);
+                if (document.querySelector('input[name="dicente"]:checked').value === "Aluno") {
+                    navigate("/materia")
+                }
+                if (document.querySelector('input[name="dicente"]:checked').value === "Monitor") {
+                    navigate("/selecaomonitor")
+                }
+            } else {
+                console.log(response);
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
     }
-}
+
+    const filteredBoards = boards.filter(board => board.period === selectedPeriod);
 
     return (
         <div className='forms-materias'>
@@ -95,7 +99,7 @@ const Index = () => {
                 </p>
                 <p className='periodo'>
                     <label>Período:</label>
-                    <select>
+                    <select value={selectedPeriod} onChange={(e) => setSelectedPeriod(e.target.value)}>
                         <option value="" disabled>Escolha o período</option>
                         <option value="1">1° Período</option>
                         <option value="2">2° Período</option>
@@ -108,12 +112,12 @@ const Index = () => {
                     </select>
                 </p>
                 <p className='materias-periodo'>
-                    {/* {boards.map((materia, index) => (
+                    {filteredBoards.map((materia, index) => (
                         <label className="checkbox-label" key={index}>
-                            <input type="checkbox" name="materiaCheckbox" onChange={handleMateriaCheckboxChange} value={materia.id}/>
+                            <input type="checkbox" name="materiaCheckbox" onChange={handleMateriaCheckboxChange} value={materia.id} />
                             {materia.name}
                         </label>
-                    ))} */}
+                    ))}
                 </p>
                 <p className='todas'>
                     <label>Todas as matérias:</label>
