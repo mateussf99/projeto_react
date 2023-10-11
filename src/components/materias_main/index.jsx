@@ -94,7 +94,7 @@ function Materias({ id }) {
                   style={{ border: "none", background: "none" }}
                   onClick={goToCreateAnswer}
                 >
-                  <img src={add} alt="Add Answer" />
+                  <img src={add} alt="Add Answer" className="icon" />
                 </button>
               </div>
               <ReportModal />
