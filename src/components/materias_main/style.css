@@ -5,6 +5,10 @@
     padding: 2.5rem;
 }
 
+.full-w {
+    min-width: 1460px;
+}
+
 .materia_title {
     display: flex;
     justify-content: space-between;

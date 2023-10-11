@@ -17,7 +17,7 @@ function App() {
           <Route path="/selecao" element={<SelecaoPage />} />
           <Route path="/selecaomonitor" element={<SelecaoMonitor />} />
           <Route path="/materia" element={<Materias />} />
-          <Route path="/questao" element={<Questao />} />
+          <Route path="/questao/:id" element={<Questao />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>

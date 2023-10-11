@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import add from '../../assets/img/add.svg'
 import ReactQuill from "react-quill";
+import PropTypes from "prop-types";
 import "react-quill/dist/quill.snow.css";
 import "./style.css"
 
-function CriarRespostaModal() {
+function CriarRespostaModal({ questionId }) {
   const [isOpen, setIsOpen] = useState(false);
+  const username = JSON.parse(localStorage.getItem('username'));
+  const answerRef = useRef();
 
   const openModal = () => {
     setIsOpen(true);
@@ -14,8 +17,6 @@ function CriarRespostaModal() {
   const closeModal = () => {
     setIsOpen(false);
   }
-
-  const [content, setContent] = useState("");
 
   const modules = {
     toolbar: [
@@ -40,13 +41,29 @@ function CriarRespostaModal() {
     "image",
   ];
 
-  const handleContentChange = (newContent) => {
-    setContent(newContent);
-  };
-
-  const handleSubmit = () => {
-    console.log(content);
-    setContent("");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = {
+      username: username,
+      text: answerRef.current.value,
+    };
+  
+    try {
+      const response = await fetch(`http://localhost:8080/posts/${questionId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      console.log(response);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -67,10 +84,9 @@ function CriarRespostaModal() {
         <div>
           <ReactQuill
             className="answer_react_quill"
-            value={content}
-            onChange={handleContentChange}
             modules={modules}
             formats={formats}
+            ref={answerRef}
           />
         </div>
         <div className="new_question_button_container">
@@ -84,5 +100,9 @@ function CriarRespostaModal() {
     </div>
   );
 }
+
+CriarRespostaModal.propTypes = {
+  questionId: PropTypes.string.isRequired,
+};
 
 export default CriarRespostaModal;

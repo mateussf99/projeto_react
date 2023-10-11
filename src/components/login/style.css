@@ -1,3 +1,7 @@
+.errorMessage {
+    color: #FF0000
+}
+
 
 .forms-login form {
     width: 44rem;
@@ -263,4 +267,6 @@
     .img-logo {
         margin-bottom: 3rem;
     }
+
+    
 }
