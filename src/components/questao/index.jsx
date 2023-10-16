@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 function Index() {
   const { id } = useParams();
+  const username = JSON.parse(localStorage.getItem('username'));
   const navigate = useNavigate();
 
   const [question, setQuestion] = useState({
@@ -51,8 +52,60 @@ function Index() {
         console.error("Error fetching data:", error);
       });
 
-      setIsLoading(false)
+    setIsLoading(false)
   }, [id]);
+
+  const upvoteComment = (commentId) => {
+    fetch(`http://localhost:8080/comments/upvote/${commentId}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  const downvoteComment = (commentId) => {
+    fetch(`http://localhost:8080/comments/downvote/${commentId}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  const upvotePost = () => {
+    fetch(`http://localhost:8080/posts/upvote/${id}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  const downvotePost = () => {
+    fetch(`http://localhost:8080/posts/downvote/${id}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
 
   if (isLoading) {
     return (
@@ -74,53 +127,63 @@ function Index() {
         </button>
       </header>
       <div className="full-w" />
-      <div
-            className="question"
-            style={{
-              backgroundColor: "var(--white-color)",
-            }}
-          >
-            <header>
-              <img src={user} alt="User" />
-              <h3>{question.user}</h3>
-              <span className="date">{question.date}</span>
-            </header>
-            <div dangerouslySetInnerHTML={{ __html: question.text }} />
-            <div className="rating">
-              <div>
-                <img className='vote' src={up} />
-                <img className='vote' src={down} />
-              </div>
-              <ReportModal />
-            </div>
-          </div>
       <div className="answer_container">
-        {answers.map((post, index) => (
-          <div
-            key={index}
-            className="question"
-            style={{
-              backgroundColor:
-                post.type === "resposta aceita"
-                  ? "var(--secondary-color)"
-                  : "var(--white-color)",
-            }}
-          >
-            <header>
-              <img src={user} alt="User" />
-              <h3>{post.user}</h3>
-              <span className="date">{post.date}</span>
-            </header>
-            <div dangerouslySetInnerHTML={{ __html: post.text }} />
-            <div className="rating">
-              <div>
+        <div
+          className="question"
+          style={{
+            backgroundColor: "var(--white-color)",
+          }}
+        >
+          <header>
+            <img src={user} alt="User" />
+            <h3>{question.user}</h3>
+            <span className="date">{question.date}</span>
+          </header>
+          <div dangerouslySetInnerHTML={{ __html: question.text }} />
+          <div className="rating">
+            <div>
+              <button onClick={ upvotePost }>
                 <img className='vote' src={up} />
+              </button>
+              <button onClick={ downvotePost }>
                 <img className='vote' src={down} />
-              </div>
-              <ReportModal />
+              </button>
             </div>
+            <ReportModal />
           </div>
-        ))}
+        </div>
+        <div >
+          {answers.map((comment, index) => (
+            <div
+              key={index}
+              className="question"
+              style={{
+                backgroundColor:
+                  comment.type === "resposta aceita"
+                    ? "var(--secondary-color)"
+                    : "var(--white-color)",
+              }}
+            >
+              <header>
+                <img src={user} alt="User" />
+                <h3>{comment.user}</h3>
+                <span className="date">{comment.date}</span>
+              </header>
+              <div dangerouslySetInnerHTML={{ __html: comment.text }} />
+              <div className="rating">
+                <div>
+                  <button onClick={ () => upvoteComment(comment.id) }>
+                    <img className='vote' src={up} />
+                  </button>
+                  <button onClick={ () => downvoteComment(comment.id) }>
+                    <img className='vote' src={down} />
+                  </button>
+                </div>
+                <ReportModal />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

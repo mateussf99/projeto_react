@@ -41,8 +41,7 @@ function CriarRespostaModal({ questionId }) {
     "image",
   ];
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async () => {
     const data = {
       username: username,
       text: answerRef.current.value,
@@ -81,7 +80,7 @@ function CriarRespostaModal({ questionId }) {
       <div className="new_question_container">
       <h2 className="new_question_title">Criar Nova Resposta</h2>
       <form className="new_answer_form" onSubmit={handleSubmit}>
-        <div>
+        <div className='quill_container'>
           <ReactQuill
             className="answer_react_quill"
             modules={modules}
