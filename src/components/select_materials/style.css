@@ -1,7 +1,7 @@
 .forms-materias {
     width: 103.5rem;
     height: 80rem;
-    background-color: var(--white-color-2);
+    background-color: var(--white-color);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
@@ -52,6 +52,9 @@
     height: 18rem;
     background-color: var(--white-color);
     border-radius: 0.5rem;
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--gray-color-1);
 }
 
 .todas input {
@@ -63,6 +66,13 @@
     font-family: var(--regular-font);
     font-size: 1.5rem;
     margin-left: 1rem;
+    outline-width: 0;
+}
+.todas input:focus {
+    background-color: var(--white-color);
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
 }
 .materias-todas {
     width: 83rem;
@@ -70,6 +80,9 @@
     background-color: var(--white-color);
     font-size: 2.4rem;
     border-radius: 0.5rem;
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--gray-color-1);
     overflow-y: auto;
     
 }
@@ -77,14 +90,20 @@
     margin-top: 1rem;
     display: flex;
     justify-content: center;
+    border-radius: 0.6rem;
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
     width: full;
 }
 
 .confirmar button {
     width: 11.9rem;
     height: 4.1rem;
-    border-radius: 0.5rem;
     border: none;
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
     background-color: var(--white-color);
     font-family: var(--regular-font);
     font-size: 1.8rem;

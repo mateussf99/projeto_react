@@ -6,7 +6,7 @@
 .forms-login form {
     width: 44rem;
     height: 66rem;
-    background-color: var(--white-color-2);
+    background-color: var(--white-color);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
@@ -30,19 +30,30 @@
 .forms-login input {
     width: 30.8rem;
     height: 3.5rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     border: none;
+    background-color: var(--gray-color-1);
     margin-bottom: 2rem;
     padding-left: 1rem;
     font-size: 1.8rem;
     font-family: var(--regular-font);
     color: var(--black-color);
+    outline-width: 0;
+}
+
+.forms-login input:focus {
+    background-color: var(--white-color);
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
 }
 .forms-login button {
     width: 11.9rem;
     height: 4.1rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
     background-color: var(--white-color);
     font-family: var(--regular-font);
     font-size: 1.8rem;
@@ -68,6 +79,7 @@
     width: 8rem;
     height: 8rem;
     background-size: cover;
+    
 }
 .img-logo {
     margin-bottom: 8rem;
@@ -76,6 +88,9 @@
     justify-content: center;
     padding: 3rem;
     border-radius: 10rem;
+    border-style: solid;
+    border-color: var(--primary-color);
+    
 }
 @media screen and (max-width: 1440px){
     .forms-login form {
