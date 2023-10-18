@@ -46,6 +46,7 @@ function Index() {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setAnswers(data);
       })
       .catch((error) => {
@@ -149,7 +150,7 @@ function Index() {
                 <img className='vote' src={down} />
               </button>
             </div>
-            <ReportModal />
+            <ReportModal postId={question.id} username={question.user}/>
           </div>
         </div>
         <div >
@@ -179,7 +180,7 @@ function Index() {
                     <img className='vote' src={down} />
                   </button>
                 </div>
-                <ReportModal />
+                <ReportModal commentId={comment.id} username={ comment.user }/>
               </div>
             </div>
           ))}

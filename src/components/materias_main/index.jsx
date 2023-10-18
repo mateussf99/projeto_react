@@ -97,7 +97,7 @@ function Materias({ id }) {
                   <img src={add} alt="Add Answer" className="icon" />
                 </button>
               </div>
-              <ReportModal />
+              <ReportModal postId={ post.id } username={ post.user }/>
             </div>
           </div>
         ))}

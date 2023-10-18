@@ -3,9 +3,9 @@ import "./style.css";
 import ManageDisc from "../manage_disc";
 
 function Admin() {
-  const tabs = ["Gerenciar Moderadores", "Gerenciar Disciplina", "Registro de auditoria"];
+  const tabs = ["Gerenciar Moderadores", "Gerenciar Disciplina", "Denuncias"];
 
-  const [selectedTab, setSelectedTab] = useState(0); // Initialize selectedTab to 0
+  const [selectedTab, setSelectedTab] = useState(0);
 
   return (
     <div className="new_question_container">
