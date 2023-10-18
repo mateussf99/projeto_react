@@ -76,7 +76,6 @@ function Materias({ id }) {
         <h2>{materia.name}</h2>
         <div className="mat_header_empty_div" />
       </header>
-      <div className="full-w"/>
       <div className="question_container">
         {posts.map((post, index) => (
           <div key={index} className="question" onClick={() => goToQuestion(post.id)}>

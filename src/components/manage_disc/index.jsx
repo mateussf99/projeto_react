@@ -21,12 +21,10 @@ function ManageDisc () {
         return response.json()
       })
       .then(data => {
-        // Handle the fetched data here, e.g., update state
         setBoards(data);
       })
       .catch(error => {
-        // Handle errors here, e.g., show an error message
-        console.error('There was a problem with the fetch operation:', error);
+        console.error(error);
       });
   }
 

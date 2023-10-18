@@ -127,7 +127,6 @@ function Index() {
           <img src={back} />
         </button>
       </header>
-      <div className="full-w" />
       <div className="answer_container">
         <div
           className="question"
