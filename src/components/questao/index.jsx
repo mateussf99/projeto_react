@@ -141,7 +141,7 @@ function Index() {
           </header>
           <div dangerouslySetInnerHTML={{ __html: question.text }} />
           <div className="rating">
-            <div>
+            <div className="vote_div">
               <button onClick={ upvotePost }>
                 <img className='vote' src={up} />
               </button>
@@ -171,7 +171,7 @@ function Index() {
               </header>
               <div dangerouslySetInnerHTML={{ __html: comment.text }} />
               <div className="rating">
-                <div>
+                <div className="vote_div">
                   <button onClick={ () => upvoteComment(comment.id) }>
                     <img className='vote' src={up} />
                   </button>

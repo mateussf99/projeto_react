@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import PropTypes from "prop-types";
 import user from "../../assets/img/user.svg";
-import add from "../../assets/img/add.svg";
 import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
 import ReportModal from "../report";
 import { useNavigate } from "react-router-dom";
 import CriarQuestaoModal from "../criar_questao_modal";
+import CriarRespostaModal from "../criar_resposta_modal";
 
 function Materias({ id }) {
-
+  const username = JSON.parse(localStorage.getItem('username'));
   const navigate = useNavigate();
   const [materia, setMateria] = useState(null);
   const [posts, setPosts] = useState([]);
@@ -29,13 +29,13 @@ function Materias({ id }) {
         console.error("Error fetching data:", error);
       });
 
-      fetch(`http://localhost:8080/posts/board/${id}`, {
+    fetch(`http://localhost:8080/posts/board/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setPosts(data);        
+        setPosts(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -46,10 +46,33 @@ function Materias({ id }) {
     navigate(`/questao/${id}`);
   };
 
-  const goToCreateAnswer = (event) => {
+  const upvotePost = (id, event) => {
     event.stopPropagation();
-    navigate("/criarresposta");
-  };
+    fetch(`http://localhost:8080/posts/upvote/${id}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  const downvotePost = (id, event) => {
+    event.stopPropagation();
+    fetch(`http://localhost:8080/posts/downvote/${id}/${username}`, {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
 
   if (!materia) {
     return <div>Loading...</div>;
@@ -86,17 +109,16 @@ function Materias({ id }) {
             </header>
             <div dangerouslySetInnerHTML={{ __html: post.text }} />
             <div className="rating">
-              <div>
-                <img className="vote" src={up} alt="Upvote" />
-                <img className="vote" src={down} alt="Downvote" />
-                <button
-                  style={{ border: "none", background: "none" }}
-                  onClick={goToCreateAnswer}
-                >
-                  <img src={add} alt="Add Answer" className="icon" />
+              <div className="vote_div">
+                <button onClick={(event) => upvotePost(post.id, event)}>
+                  <img className='vote' src={up} />
                 </button>
+                <button onClick={(event) => downvotePost(post.id, event)}>
+                  <img className='vote' src={down} />
+                </button>
+                <CriarRespostaModal type="small-button"/>
               </div>
-              <ReportModal postId={ post.id } username={ post.user }/>
+              <ReportModal postId={post.id} username={post.user} />
             </div>
           </div>
         ))}
