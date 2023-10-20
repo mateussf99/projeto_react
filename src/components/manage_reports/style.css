@@ -1,0 +1,11 @@
+.report_list{
+    font-size: 1.5rem;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.report_item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

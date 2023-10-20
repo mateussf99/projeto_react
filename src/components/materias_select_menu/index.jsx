@@ -1,19 +1,18 @@
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 import './style.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function MateriasSelectMenu ({ selected, list }) {
+function MateriasSelectMenu({ list, onChange }) {
     const navigate = useNavigate();
+    const [selectedMateria, setSelectedMateria] = useState(0);
 
-    const [selectedMateria, setSelectedMateria] = useState(selected);
+    const changeSelected = (index) => {
+        setSelectedMateria(index);
+        navigate("/materia");
 
-    const changeSelected = (materia) => {
-        setSelectedMateria(materia);
-        navigate("/materia")
-
-    }
-
+        onChange(list[index].id);
+    };
 
     return (
         <div className='materia_selector'>
@@ -22,8 +21,12 @@ function MateriasSelectMenu ({ selected, list }) {
             </header>
             <div>
                 {list.map((materia, index) => (
-                    <button onClick={ () => changeSelected(materia) } className='materia_list' key={index}>
-                        {materia === selectedMateria ? <span className='selected' >{materia}</span>: <span className='materia'>{materia}</span>}
+                    <button onClick={() => changeSelected(index)} className='materia_list' key={materia.id}>
+                        {index === selectedMateria ? (
+                            <span className='selected'>{materia.name}</span>
+                        ) : (
+                            <span className='materia'>{materia.name}</span>
+                        )}
                     </button>
                 ))}
             </div>
@@ -32,8 +35,14 @@ function MateriasSelectMenu ({ selected, list }) {
 }
 
 MateriasSelectMenu.propTypes = {
-    selected: PropTypes.string,
-    list: PropTypes.arrayOf(string),
-}
+    selected: PropTypes.object, // Assuming selected is an object with 'id' and 'name' properties
+    list: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ),
+    onChange: PropTypes.func,
+};
 
 export default MateriasSelectMenu;

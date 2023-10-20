@@ -39,17 +39,20 @@
 }
 
 .left_tab {
-  height: 66vh;
+  height: 61vh;
   border-radius: 0rem 1rem 1rem 1rem;
   background-color: var(--secondary-color);
+  padding: 2rem;
 }
 .middle_tab {
-  height: 66vh;
+  height: 61vh;
   border-radius: 1rem 1rem 1rem 1rem;
+  padding: 2rem;
   background-color: var(--secondary-color);
 }
 .right_tab {
-  height: 66vh;
+  height: 61vh;
+  padding: 2rem;
   border-radius: 1rem 0rem 1rem 1rem;
   background-color: var(--secondary-color);
 }

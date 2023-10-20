@@ -75,11 +75,36 @@
 }
 
 .answer_react_quill {
-  margin-top: 3rem;
   border-radius: 1rem;
   background-color: var(--white-color);
+  height: 100%;
+}
+
+.quill_container {
+  margin-top: 3rem;
   height: 64vh;
 }
+
+.answer_react_quill::-webkit-scrollbar {
+  padding: 1rem;
+  width: 1rem; /* Tamanho do scroll em si */
+}
+
+.answer_react_quill::-webkit-scrollbar-track {
+  background: none; /* Fundo do scroll */
+  border-radius: 2rem; /* Arredondamento do scroll */
+}
+
+.answer_react_quill::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color); /* Cor do scroll */
+  border-radius: 2rem; /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+}
+.answer_react_quill::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color); /* Cor do scroll */
+}
+
+
 
 .ql-toolbar.ql-snow { border: none !important;}
 .ql-container.ql-snow { border: none !important;}

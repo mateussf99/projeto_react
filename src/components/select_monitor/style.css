@@ -1,7 +1,7 @@
 .forms-materias-monitor {
     width: 103.5rem;
     height: 80rem;
-    background-color: var(--white-color-2);
+    background-color: var(--white-color);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
@@ -34,11 +34,22 @@
     font-family: var(--regular-font);
     font-size: 1.5rem;
     margin-left: 1rem;
+    outline-width: 0;
 }
+
+.todas-materias input:focus {
+    background-color: var(--white-color);
+    border: 0.2rem;
+    border-style: solid;
+    border-color: var(--primary-color);
+}
+
 .materias-todas-monitor {
     width: 83rem;
     height: 18rem;
     background-color: var(--white-color);
+    border: 0.2rem solid;
+    border-color: var(--gray-color-1);
     font-size: 2.4rem;
     border-radius: 0.5rem;
     overflow-y: auto;
@@ -66,6 +77,8 @@
     width: 100%;
     height: 20rem;
     border-radius: 0.5rem;
+    border: 0.2rem solid;
+    border-color: var(--gray-color-1);
     background-color: var(--white-color);
     font-family: var(--regular-font);
     font-size: 1.5rem;

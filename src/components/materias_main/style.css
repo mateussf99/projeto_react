@@ -5,6 +5,10 @@
     padding: 2.5rem;
 }
 
+.full-w {
+    min-width: 1460px;
+}
+
 .materia_title {
     display: flex;
     justify-content: space-between;
@@ -16,10 +20,10 @@
     font-size: 2.5rem;
 }
 
-.materia_title img {
+/* .materia_title img {
     height: 48px;
     width: 48px;
-}
+} */
 
 .question_container {
     max-height: 89%;
@@ -83,3 +87,13 @@
     margin-left: auto;
 }
 
+.vote_div {
+    display: flex;
+}
+
+.vote_div button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

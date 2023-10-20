@@ -2,64 +2,65 @@ import "./style.css";
 import Header from "../../components/header";
 import Questoes from "../../components/questao/";
 import MateriasSelectMenu from "../../components/materias_select_menu/";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Index = () => {
-  const selectedQuestao = {
-    id: "1",
-    name: "Título da pregunta 1",
-    materiaName: "Cálculo Diferencial e integral",
-    posts: [
-      {
-        user: "Usuário 1",
-        userId: "1",
-        description:
-          "Breve descrição da pergunta, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        type: "pergunta",
-        date: "01/09/23 12:25"
-      },
-      {
-        user: "Usuário 2",
-        userId: "2",
-        description:
-          "Esta Resposta foi aceita, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        type: "resposta aceita",
-        date: "01/09/23 12:25"        
-      },
-      {
-        user: "Usuário 3",
-        userId: "3",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        type: "resposta",
-        date: "01/09/23 12:25"
-      },
-      {
-        user: "Usuário 4",
-        userId: "4",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        type: "resposta",
-        date: "01/09/23 12:25"
-      },
-    ],
-  };
-  const listaMaterias = [
-    "Cálculo Diferencial e integral",
-    "Computação Sociedade e Ética",
-    "Lógica Aplicada a Computação",
-    "Matemática Discreta",
-    "Programação 1",
-  ];
+  const [isLoading, setIsLoading] = useState(true);
+  const [listaMaterias, setListaMaterias] = useState([]);
+  const [selectedMateriaId, setSelectedMateriaId] = useState(null);
+  const navigate = useNavigate();
+  const username = JSON.parse(localStorage.getItem('username'));
+  useEffect(() => {
+    fetchUserBoards();
+  }, []);
+  const fetchUserBoards = () => {
+    if (username === "none") {
+      navigate("/");
+    }
+    fetch(`http://localhost:8080/users/${username}/boards`, {
+      method: 'GET',
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json()
+      })
+      .then(data => {
+        if (data.length === 0) {
+          navigate("/selecao");
+        }
+        console.log(data);
+        setListaMaterias(data.map(board => ({ id: board.id, name: board.name })));
+        setSelectedMateriaId(data[0].id);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+
+  const handleMateriaChange = (id) => {
+    setSelectedMateriaId(id);
+  }
+
+  console.log("teste: " + selectedMateriaId);
+
+  if (isLoading) {
+    return (
+      <div>...loading</div>
+    );
+  }
 
   return (
     <div>
       <Header />
       <div className="body">
         <MateriasSelectMenu
-          selected={selectedQuestao.materiaName}
-          list={listaMaterias}
+          list={listaMaterias} onChange={handleMateriaChange}
         />
-        <Questoes questao={selectedQuestao} />
+        <Questoes />
       </div>
     </div>
   );

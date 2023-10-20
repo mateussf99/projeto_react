@@ -2,15 +2,21 @@ import "./style.css";
 import logo from "../../assets/img/logo.svg";
 import user from "../../assets/img/user.svg";
 import logout from "../../assets/img/logout.svg";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate("/materia");
+  }
   return (
     <div className="main_header">
-      <div className="logo_div">
+      <div onClick={onClick} className="logo_div">
         <div className="logo_img">
           <img src={logo} />
         </div>
-        <a href="/materia" style={{ textDecoration: "none", color: "inherit" }}>
+        <a style={{ textDecoration: "none", color: "inherit" }}>
           <h1 className="logo_text">InteraCt</h1>
         </a>
       </div>
@@ -21,6 +27,7 @@ function Header() {
         </a>
         <a href="/">
           <img className='logout_img' src={logout} />
+          
         </a>
       </div>
     </div>

@@ -3,6 +3,7 @@
   margin: 5rem;
   border-radius: 1rem;
   padding: 2.5rem;
+  width: 100%;
 }
 
 .questao_title {
@@ -68,7 +69,7 @@
   font-size: 1.5rem;
 }
 
-.question img {
+.icon {
   width: 25px;
   height: 25px;
 }
