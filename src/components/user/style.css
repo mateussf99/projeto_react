@@ -1,5 +1,5 @@
 .user_container {
-  background-color: var(--white-color-2);
+  background-color: var(--white-color);
   justify-content: center;
   width: 95%;
   max-width: 103.5rem;
@@ -50,6 +50,7 @@
   padding: 2rem;
   height: 22vh;
   border-radius: 1rem;
+  border: solid 0.2rem var(--primary-color);
   background-color: var(--white-color);
 }
 
@@ -89,8 +90,14 @@
   padding: 1rem 1.5rem 1rem 1.5rem;
   font-size: 1.5rem;
   outline: none;
-  border: none;
+  border: solid 0.2rem var(--primary-color);
   border-radius: 1rem;
-  background-color: var(--secondary-color);
+  cursor: pointer;
+  background-color: var(--wihte-color);
+  color: var(--black-color);
+}
+
+.user_page_button:hover {
+  background-color: var(--primary-color);
   color: var(--white-color);
 }

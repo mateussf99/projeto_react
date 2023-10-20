@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--white-color-2);
+    background-color: var(--white-color);
     margin: 5rem;
     border-radius: 1rem;
     padding: 2.5rem;
@@ -36,18 +36,20 @@
 }
 
 .question_container::-webkit-scrollbar {
-    width: 1rem;     /* Tamanho do scroll em si */            
+    width: 0.8rem;     /* Tamanho do scroll em si */           
   }
   
   .question_container::-webkit-scrollbar-track {
     background: none;    /* Fundo do scroll */  
     border-radius: 2rem;      /* Arredondamento do scroll */
+    
   }
   
   .question_container::-webkit-scrollbar-thumb {
     background-color: var(--secondary-color);    /* Cor do scroll */
     border-radius: 2rem;      /* Arredondamento do scroll */
     border: 0.2rem solid transparent;
+    
   }
   .question_container::-webkit-scrollbar-thumb:hover{
     background-color: var(--primary-color);  /* Cor do scroll */
@@ -56,6 +58,7 @@
 .question {
     background-color: var(--white-color);
     padding:2rem 2rem 1rem 2rem;
+    border: solid 0.2rem var(--primary-color);
     margin-bottom: 2rem;
     border-radius: 1rem;
 }
