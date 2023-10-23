@@ -39,25 +39,6 @@
   font-size: 2rem;
 }
 
-.question_title {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.question_title span {
-  margin-right: 2rem;
-}
-.question_title input {
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 1rem;
-  height: 3rem;
-}
-
 .form_label {
   font-size: 1.75rem;
 }
@@ -70,13 +51,13 @@
   outline: none;
   border: none;
   border-radius: 1rem;
-  background-color: var(--secondary-color);
   color: var(--white-color);
 }
 
 .answer_react_quill {
   border-radius: 1rem;
   background-color: var(--white-color);
+  border: solid 0.2rem var(--primary-color);
   height: 100%;
 }
 
