@@ -6,6 +6,7 @@ import file_open from '../../assets/img/file_open.svg';
 const Index = () => {
     const username = JSON.parse(localStorage.getItem('username'));
     const [materias, setMaterias] = useState([]);
+    const [certificateFile, setCertificateFile] = useState(null);
 
     useEffect(() => {
         fetchBoards();
@@ -17,7 +18,8 @@ const Index = () => {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(response);
+                    console.log(response)
+                    throw Error();
                 }
                 return response.json();
             })
@@ -26,7 +28,7 @@ const Index = () => {
                 console.log(data);
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.log(error);
             });
     }
 
@@ -57,42 +59,26 @@ const Index = () => {
 
     const certificateFileRef = useRef(null);
 
-    const handleSubmit = () => {
-        const certificateFile = certificateFileRef.current.files[0];
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData();
+        data.append("pdfFile", certificateFile);
+        data.append("username", username);
+        data.append("boardId", selectedSubjectId);
 
-        if (!selectedSubjectId) {
-            alert("Please select a subject.");
-            return;
-        }
-
-        if (!certificateFile) {
-            alert("Please upload a certificate file.");
-            return;
-        }
-
-        if (certificateFile.type !== "application/pdf") {
-            alert("Please upload a PDF file.");
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append("pdfFile", certificateFile);
-        formData.append("username", username);
-        formData.append("boardId", selectedSubjectId);
-
-        fetch("http://localhost:8080/request/create/", {
+        fetch("http://localhost:8080/request/create", {
             method: 'POST',
-            body: formData,
+            body: data,
         })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
-                return response.json();
+                return response.data;
             })
             .then(data => {
                 console.log(data);
-                navigate('/success');
+                navigate('/materia');
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -125,6 +111,10 @@ const Index = () => {
                             name="arquivo-comprovacao"
                             id="arquivo-comprovacao"
                             accept=".pdf"
+                            onChange={(event) => {
+                                const file = event.target.files[0];
+                                setCertificateFile(file);
+                            }}
                             ref={certificateFileRef}
                         />
                     </div>
