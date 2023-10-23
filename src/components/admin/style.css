@@ -1,5 +1,5 @@
-.admin_container {
-  background-color: var(--white-color-2);
+.new_question_container {
+  background-color: var(--white-color);
   justify-content: center;
   text-align: center;
   width: 95%;
@@ -29,9 +29,16 @@
 }
 
 .selected_tab {
+  border: solid 0.3rem var(--primary-color);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  background-color: var(--secondary-color);
+  background-color: var(--white-color);
+  border-bottom: none;
+}
+
+.selected_tab {
+  background-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .select_section h2:nth-child(odd) {
@@ -40,19 +47,22 @@
 
 .left_tab {
   height: 61vh;
+  border: solid 0.2rem var(--primary-color);
   border-radius: 0rem 1rem 1rem 1rem;
-  background-color: var(--secondary-color);
+  background-color: var(--white-color);
   padding: 2rem;
 }
 .middle_tab {
   height: 61vh;
+  border: solid 0.2rem var(--primary-color);
   border-radius: 1rem 1rem 1rem 1rem;
   padding: 2rem;
-  background-color: var(--secondary-color);
+  background-color: var(--white-color);
 }
 .right_tab {
   height: 61vh;
   padding: 2rem;
+  border: solid 0.2rem var(--primary-color);
   border-radius: 1rem 0rem 1rem 1rem;
-  background-color: var(--secondary-color);
+  background-color: var(--white-color);
 }
