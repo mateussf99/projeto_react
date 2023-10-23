@@ -40,13 +40,14 @@ function Block({ id, reportId, type }) {
 
   const reason = useRef();
 
-  const HandleClick = () => {
+  const HandleClick = (event) => {
+    event.preventDefault();
     const dataToSend = {
       reason: reason.current.value,
-      time: timeout,
+      timeout: timeout,
     };
 
-    fetch(`http://localhost:8080/users/block/${reportId}`, {
+    fetch(`http://localhost:8080/report/${reportId}/blockUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

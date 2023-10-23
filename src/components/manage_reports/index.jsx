@@ -34,14 +34,15 @@ function ManageReports() {
             <div key={index}>{report.idPost !== null ?
                 <div className="report_item">
                     <span>Id da questão: {report.idPost}.</span>
-                    <span>Motivo da denuncia: {report.description}</span>
-                    <Block id={report.idPost} type="posts" reportId={report.id}/>
+                    <span>Motivo da denuncia: {report.reason}</span>
+                    {report.answered ? <div></div> : <Block id={report.idPost} type="posts" reportId={report.id}/>}
+                    
                 </div> :
                 report.idComment !== null ?
                     <div className="report_item">
                         <span>Id da resposta: {report.idComment}.</span>
-                        <span>Motivo da denuncia: {report.description}</span>
-                        <Block id={report.idComment} type="comments" reportId={report.id}/>
+                        <span>Motivo da denuncia: {report.reason}</span>
+                        {report.answered ? <div></div> : <Block id={report.idComment} type="posts" reportId={report.id}/>}
                     </div> :
                     <div><span>ERROR</span></div>}
             </div>
