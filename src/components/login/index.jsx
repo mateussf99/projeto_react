@@ -33,8 +33,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('username', JSON.stringify(data.username));
-        console.log(data);
-        //const token = data.token; 
+        localStorage.setItem('token', JSON.stringify(data.token));
         navigate("/materia");
       } else {
         console.error('Login failed');

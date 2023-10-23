@@ -3,6 +3,7 @@ import CriarDisc from "../criar-disc";
 import './style.css'
 
 function ManageDisc () {
+  const token = JSON.parse(localStorage.getItem('token'));
     const [boards, setBoards] = useState([]);
 
   useEffect(() => {
@@ -12,6 +13,10 @@ function ManageDisc () {
   const fetchBoards = () => {
     fetch('http://localhost:8080/boards', {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then(response => {
         if (!response.ok) {

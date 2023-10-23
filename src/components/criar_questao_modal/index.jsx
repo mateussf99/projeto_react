@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import "./style.css"
 
 function CriarQuestaoModal({ boardId }) {
+  const token = JSON.parse(localStorage.getItem('token'));
   const titleRef = useRef();
   const postRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
@@ -55,6 +56,7 @@ function CriarQuestaoModal({ boardId }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
         },
         body: JSON.stringify(data),
       });
