@@ -94,7 +94,7 @@ function Block({ id, reportId, type }) {
               </div>
                :
                 type === "posts" ? <div>
-                  <span className="block_label">Resposta que foi reportada: </span>
+                  <span className="block_label">    Questão que foi reportada: </span>
                 <br/>
                 <span>{post.title}</span>
                 <br/>

@@ -14,7 +14,7 @@
   }
   
   .block_container {
-    background-color: var(--white-color-2);
+    background-color: var(--white-color);
     justify-content: center;
     text-align: center;
     max-width: 103.5rem;
@@ -35,12 +35,13 @@
   
   .block_title {
     width: 100%;
-    
     justify-content: space-between;
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  
+  .block_title select {
+    border: solid 0.1rem var(--primary-color);
+  }
   .block_title span {
     margin-right: 2rem;
   }
@@ -58,7 +59,7 @@
   
   .block_textarea{
     outline: none;
-    border: none;
+    border: solid 0.12rem var(--primary-color);
     border-radius: 1rem;
     min-height: 10rem;
     width: 100%;

@@ -12,7 +12,7 @@
 }
 
 .modal-content {
-  background-color: var(--white-color-2);
+  background-color: var(--white-color);
   border-radius: 1rem;
   padding: 2rem;
 }
@@ -24,9 +24,12 @@
 }
 
 .modal_textarea {
-  border: none;
+  border: solid 0.2rem var(--primary-color);
+  outline: none;
   width: 60rem;
   height: 30rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
   border-radius: 1rem;
@@ -36,8 +39,17 @@
   padding: 1rem 1.5rem 1rem 1.5rem;
   font-size: 1.5rem;
   outline: none;
-  border: none;
+  border: solid 0.1rem var(--primary-color);
   border-radius: 1rem;
-  background-color: var(--secondary-color);
+  cursor: pointer;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.modal_button:hover {
+  background-color: var(--primary-color);
   color: var(--white-color);
+}
+.block_textarea {
+  resize: none;
 }
