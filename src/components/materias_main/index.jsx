@@ -10,6 +10,7 @@ import CriarQuestaoModal from "../criar_questao_modal";
 import CriarRespostaModal from "../criar_resposta_modal";
 
 function Materias({ id }) {
+  const token = JSON.parse(localStorage.getItem('token'));
   const username = JSON.parse(localStorage.getItem('username'));
   const navigate = useNavigate();
   const [materia, setMateria] = useState(null);
@@ -19,6 +20,10 @@ function Materias({ id }) {
 
     fetch(`http://localhost:8080/boards/${id}`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -31,6 +36,10 @@ function Materias({ id }) {
 
     fetch(`http://localhost:8080/posts/board/${id}`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -50,6 +59,10 @@ function Materias({ id }) {
     event.stopPropagation();
     fetch(`http://localhost:8080/posts/upvote/${id}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -64,6 +77,10 @@ function Materias({ id }) {
     event.stopPropagation();
     fetch(`http://localhost:8080/posts/downvote/${id}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const Index = () => {
+    const token = JSON.parse(localStorage.getItem('token'));
     const username = JSON.parse(localStorage.getItem('username'));
     const navigate = useNavigate();
     const [boards, setBoards] = useState([])
@@ -16,6 +17,10 @@ const Index = () => {
     const fetchBoards = () => {
         fetch('http://localhost:8080/boards', {
             method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+              },
         })
             .then(response => {
                 if (!response.ok) {
@@ -63,7 +68,8 @@ const Index = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                },
+                    'Authorization': 'Bearer ' + token,
+                  },
                 body: JSON.stringify(data),
             });
 

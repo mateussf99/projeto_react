@@ -7,6 +7,7 @@ import "./style.css"
 
 function CriarRespostaModal({ questionId, type }) {
   const [isOpen, setIsOpen] = useState(false);
+  const token = JSON.parse(localStorage.getItem('token'));
   const username = JSON.parse(localStorage.getItem('username'));
   const answerRef = useRef();
 
@@ -52,6 +53,7 @@ function CriarRespostaModal({ questionId, type }) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
         },
         body: JSON.stringify(data),
       });

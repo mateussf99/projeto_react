@@ -35,7 +35,7 @@ function MateriasSelectMenu({ list, onChange }) {
 }
 
 MateriasSelectMenu.propTypes = {
-    selected: PropTypes.object, // Assuming selected is an object with 'id' and 'name' properties
+    selected: PropTypes.object, 
     list: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
