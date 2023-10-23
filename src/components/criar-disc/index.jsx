@@ -70,7 +70,7 @@ function CriarDisc() {
                 <span className="form_label">Nome da Disciplina:</span>
                 <input type="text" ref={newDisc} />
               </div>
-              <p className='periodo new_disc_title'>
+              <p className='periodos new_disc_title'>
                 <label>Período:</label>
                 <select onChange={handleSelectChange}>
                   <option value="" disabled>Escolha o período</option>
