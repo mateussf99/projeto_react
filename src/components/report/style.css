@@ -50,3 +50,6 @@
   background-color: var(--primary-color);
   color: var(--white-color);
 }
+.block_textarea {
+  resize: none;
+}
