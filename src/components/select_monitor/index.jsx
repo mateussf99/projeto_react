@@ -4,6 +4,7 @@ import './style.css';
 import file_open from '../../assets/img/file_open.svg';
 
 const Index = () => {
+    const token = JSON.parse(localStorage.getItem('token'));
     const username = JSON.parse(localStorage.getItem('username'));
     const [materias, setMaterias] = useState([]);
     const [certificateFile, setCertificateFile] = useState(null);
@@ -15,6 +16,10 @@ const Index = () => {
     const fetchBoards = () => {
         fetch('http://localhost:8080/boards', {
             method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+              },
         })
             .then(response => {
                 if (!response.ok) {
@@ -68,6 +73,10 @@ const Index = () => {
 
         fetch("http://localhost:8080/request/create", {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+              },
             body: data,
         })
             .then(response => {

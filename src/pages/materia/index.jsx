@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Materia = () => {
   const user = { type: "user" }
+  const token = JSON.parse(localStorage.getItem('token'));
   const unAnsweredQuestions = ["Título Pergunta 2", "Título Pergunta 3"]
   const [isLoading, setIsLoading] = useState(true);
   const [listaMaterias, setListaMaterias] = useState([]);
@@ -23,6 +24,10 @@ const Materia = () => {
     }
     fetch(`http://localhost:8080/users/${username}/boards`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then(response => {
         if (!response.ok) {

@@ -10,6 +10,7 @@ const Index = () => {
   const [listaMaterias, setListaMaterias] = useState([]);
   const [selectedMateriaId, setSelectedMateriaId] = useState(null);
   const navigate = useNavigate();
+  const token = JSON.parse(localStorage.getItem('token'));
   const username = JSON.parse(localStorage.getItem('username'));
   useEffect(() => {
     fetchUserBoards();
@@ -20,6 +21,10 @@ const Index = () => {
     }
     fetch(`http://localhost:8080/users/${username}/boards`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then(response => {
         if (!response.ok) {
