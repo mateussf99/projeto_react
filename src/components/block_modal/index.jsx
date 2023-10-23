@@ -4,6 +4,7 @@ import block from '../../assets/img/block.svg'
 import "./style.css"
 
 function Block({ id, reportId, type }) {
+  const token = JSON.parse(localStorage.getItem('token'));
   const [isOpen, setIsOpen] = useState(false);
   const [timeout, setTimeout] = useState("0");
   const [post, setPost] = useState();
@@ -25,6 +26,10 @@ function Block({ id, reportId, type }) {
     try {
       const response = await fetch(url, {
         method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
+        },
       });
 
       if (!response.ok) {

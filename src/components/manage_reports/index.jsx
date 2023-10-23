@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 
 function ManageReports() {
+    const token = JSON.parse(localStorage.getItem('token'));
     const [reports, setReports] = useState([]);
 
     useEffect(() => {
@@ -15,6 +16,10 @@ function ManageReports() {
         try {
             const response = await fetch('http://localhost:8080/report', {
                 method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                  },
             });
 
             if (!response.ok) {
