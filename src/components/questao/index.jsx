@@ -9,6 +9,7 @@ import CriarRespostaModal from "../criar_resposta_modal";
 import { useEffect, useState } from "react";
 
 function Index() {
+  const token = JSON.parse(localStorage.getItem('token'));
   const { id } = useParams();
   const username = JSON.parse(localStorage.getItem('username'));
   const navigate = useNavigate();
@@ -32,6 +33,10 @@ function Index() {
 
     fetch(`http://localhost:8080/posts/${id}`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -43,6 +48,10 @@ function Index() {
 
     fetch(`http://localhost:8080/comments/posts/${id}`, {
       method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -59,6 +68,10 @@ function Index() {
   const upvoteComment = (commentId) => {
     fetch(`http://localhost:8080/comments/upvote/${commentId}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -72,6 +85,10 @@ function Index() {
   const downvoteComment = (commentId) => {
     fetch(`http://localhost:8080/comments/downvote/${commentId}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -85,6 +102,10 @@ function Index() {
   const upvotePost = () => {
     fetch(`http://localhost:8080/posts/upvote/${id}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -98,6 +119,10 @@ function Index() {
   const downvotePost = () => {
     fetch(`http://localhost:8080/posts/downvote/${id}/${username}`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
+      },
     })
       .then((response) => response.json())
       .then((data) => {

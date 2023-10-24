@@ -21,13 +21,14 @@ function CriarDisc() {
     
     const dataToSend = {
       name: discData,
-      period: selectedPeriod, // Use the selectedPeriod state here
+      period: selectedPeriod, 
     };
   
     fetch('http://localhost:8080/boards', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token,
       },
       body: JSON.stringify(dataToSend),
     })
@@ -38,16 +39,13 @@ function CriarDisc() {
         return response.json();
       })
       .then((data) => {
-        // Handle the response data if needed
         console.log(data);
       })
       .catch((error) => {
-        // Handle any errors that occurred during the fetch.
         console.error('There was a problem with the fetch operation:', error);
       });
   };
 
-  // Update the selectedPeriod state when the <select> value changes
   const handleSelectChange = (event) => {
     setSelectedPeriod(event.target.value);
   };

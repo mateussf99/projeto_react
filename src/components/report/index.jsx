@@ -5,6 +5,7 @@ import close from '../../assets/img/close.svg'
 import "./style.css"
 
 function ReportModal({ postId, commentId, username }) {
+  const token = JSON.parse(localStorage.getItem('token'));
   const [isOpen, setIsOpen] = useState(false);
   const reportTextRef = useRef();
 
@@ -43,6 +44,7 @@ function ReportModal({ postId, commentId, username }) {
         method: "PUT",
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token,
         },
         body: JSON.stringify(data),
       })
