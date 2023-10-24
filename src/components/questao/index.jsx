@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 
 function Index() {
   const token = JSON.parse(localStorage.getItem('token'));
-  const { id } = useParams();
+  const { idboard, idpost } = useParams();
   const username = JSON.parse(localStorage.getItem('username'));
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ function Index() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:8080/posts/${id}/${username}`, {
+    fetch(`http://localhost:8080/posts/${idpost}/${username}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function Index() {
         console.error("Error fetching data:", error);
       });
 
-    fetch(`http://localhost:8080/comments/posts/${id}/${username}`, {
+    fetch(`http://localhost:8080/comments/posts/${idpost}/${username}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ function Index() {
       });
 
     setIsLoading(false)
-  }, [id]);
+  }, [idpost]);
 
   const upvoteComment = (commentId) => {
     fetch(`http://localhost:8080/comments/upvote/${commentId}/${username}`, {
@@ -76,6 +76,7 @@ function Index() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -93,6 +94,7 @@ function Index() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -100,7 +102,7 @@ function Index() {
   }
 
   const upvotePost = () => {
-    fetch(`http://localhost:8080/posts/upvote/${id}/${username}`, {
+    fetch(`http://localhost:8080/posts/upvote/${idpost}/${username}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -110,6 +112,7 @@ function Index() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -117,7 +120,7 @@ function Index() {
   }
 
   const downvotePost = () => {
-    fetch(`http://localhost:8080/posts/downvote/${id}/${username}`, {
+    fetch(`http://localhost:8080/posts/downvote/${idpost}/${username}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -127,6 +130,7 @@ function Index() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -142,7 +146,7 @@ function Index() {
   return (
     <div className="container">
       <header className="questao_title">
-        <CriarRespostaModal questionId={id} />
+        <CriarRespostaModal questionId={idpost} />
         <h2>{question.title}</h2>
         <button
           onClick={handleGoBack}
@@ -186,7 +190,7 @@ function Index() {
                   </button>
                 )}
             </div>
-            <ReportModal postId={question.id} username={question.user}/>
+            <ReportModal postId={question.id} username={question.user} boardId={idboard}/>
           </div>
         </div>
         <div >
@@ -228,7 +232,7 @@ function Index() {
                   </button>
                 )}
                 </div>
-                <ReportModal commentId={comment.id} username={ comment.user }/>
+                <ReportModal commentId={comment.id} username={ comment.user } boardId={idboard}/>
               </div>
             </div>
           ))}

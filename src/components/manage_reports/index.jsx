@@ -47,7 +47,7 @@ function ManageReports() {
                     <div className="report_item">
                         <span>Id da resposta: {report.idComment}.</span>
                         <span>Motivo da denuncia: {report.reason}</span>
-                        {report.answered ? <div></div> : <Block id={report.idComment} type="posts" reportId={report.id}/>}
+                        {report.answered ? <div></div> : <Block id={report.idComment} type="comments" reportId={report.id}/>}
                     </div> :
                     <div><span>ERROR</span></div>}
             </div>

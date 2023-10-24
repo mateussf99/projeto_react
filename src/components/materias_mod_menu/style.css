@@ -58,3 +58,8 @@
     font-size: 1rem;
     text-align: center;
 }
+
+.mod_menu_report_item {
+    display: flex;
+    justify-content: center;
+}

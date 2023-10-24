@@ -18,7 +18,7 @@ function Index({ usuario }) {
             <div className='basic_user_data'>
                 <img src={usuario.imagem} />
                 <div>
-                    <span>{usuario.name}</span>
+                    <span>{ JSON.parse(localStorage.getItem('username')) }</span>
                     <br />
                     <span>{usuario.email}</span>
                 </div>

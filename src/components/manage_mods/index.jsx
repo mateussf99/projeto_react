@@ -52,9 +52,8 @@ function ManageMods() {
         }
         return response.data;
       })
-      .then((data) => {
-        setRequests(data);
-        console.log(data);
+      .then(() => {
+        window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -74,11 +73,11 @@ function ManageMods() {
           console.log(response);
           throw Error("Network response was not ok");
         }
-        return response.json();
+        return response.data;
       })
       .then((data) => {
-        setRequests(data);
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -129,7 +128,7 @@ function ManageMods() {
                 <iframe
                   src={`data:application/pdf;base64,${request.certificate}`}
                   width="100%"
-                  height="500px"
+                  height="700px"
                   title="Certificate PDF"
                 />
               </div>

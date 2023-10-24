@@ -5,6 +5,7 @@ import "./style.css"
 
 function Block({ id, reportId, type }) {
   const token = JSON.parse(localStorage.getItem('token'));
+  const username = JSON.parse(localStorage.getItem('username'));
   const [isOpen, setIsOpen] = useState(false);
   const [timeout, setTimeout] = useState("0");
   const [post, setPost] = useState();
@@ -22,7 +23,13 @@ function Block({ id, reportId, type }) {
   }, []);
 
   const fetchReports = async () => {
-    const url = `http://localhost:8080/${type}/${id}`;
+    let url
+    if (type === "posts") {
+      url = `http://localhost:8080/posts/${id}/${username}`;
+    }
+    if (type === "comments") {
+      url = `http://localhost:8080/comments/${id}`;
+    }
     try {
       const response = await fetch(url, {
         method: 'GET',
@@ -37,6 +44,7 @@ function Block({ id, reportId, type }) {
       }
 
       const data = await response.json();
+      console.log(data);
       setPost(data);
     } catch (error) {
       console.error(error);

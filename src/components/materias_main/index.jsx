@@ -49,8 +49,8 @@ function Materias({ id }) {
       });
   }, [id]);
 
-  const goToQuestion = (id) => {
-    navigate(`/questao/${id}`);
+  const goToQuestion = (postid) => {
+    navigate(`/questao/${id}/${postid}`);
   };
 
   const upvotePost = (id, event) => {
@@ -65,6 +65,7 @@ function Materias({ id }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -83,6 +84,7 @@ function Materias({ id }) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -137,7 +139,7 @@ function Materias({ id }) {
                     <img src={up} />
                   </button>
                 ) : (
-                  <button className="vote_button" onClick={(event) => downvotePost(post.id, event)}>
+                  <button className="vote_button" onClick={(event) => upvotePost(post.id, event)}>
                     <img className="vote" src={up} />
                   </button>
                 )}
@@ -152,7 +154,7 @@ function Materias({ id }) {
                 )}
                 <CriarRespostaModal questionId={post.id} type="small-button" />
               </div>
-              <ReportModal postId={post.id} username={post.user} />
+              <ReportModal postId={post.id} username={post.user} boardId={id}/>
             </div>
           </div>
         ))}

@@ -4,7 +4,7 @@ import report from '../../assets/img/report.svg'
 import close from '../../assets/img/close.svg'
 import "./style.css"
 
-function ReportModal({ postId, commentId, username }) {
+function ReportModal({ postId, commentId, username, boardId }) {
   const token = JSON.parse(localStorage.getItem('token'));
   const [isOpen, setIsOpen] = useState(false);
   const reportTextRef = useRef();
@@ -29,6 +29,7 @@ function ReportModal({ postId, commentId, username }) {
     const data = {
       username: username,
       reason: description,
+      boardId: boardId,
     }
     
     let url = "";

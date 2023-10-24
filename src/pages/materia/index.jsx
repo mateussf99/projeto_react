@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Materia = () => {
-  const user = { type: "user" }
   const token = JSON.parse(localStorage.getItem('token'));
   const unAnsweredQuestions = ["Título Pergunta 2", "Título Pergunta 3"]
   const [isLoading, setIsLoading] = useState(true);
@@ -15,6 +14,7 @@ const Materia = () => {
   const [selectedMateriaId, setSelectedMateriaId] = useState(null);
   const navigate = useNavigate();
   const username = JSON.parse(localStorage.getItem('username'));
+  const role = JSON.parse(localStorage.getItem('role'));
   useEffect(() => {
     fetchUserBoards();
   }, []);
@@ -67,7 +67,7 @@ const Materia = () => {
       <div className='body'>
         <MateriasSelectMenu list={listaMaterias} onChange={handleMateriaChange} />
         <Materias id={selectedMateriaId} />
-        {user.type === "mod" ? <MateriasModMenu questions={unAnsweredQuestions} /> : null}
+        {role === "MONITOR" ? <MateriasModMenu questions={unAnsweredQuestions} /> : null}
       </div>
     </div>
   )

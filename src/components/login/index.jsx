@@ -34,6 +34,8 @@ const LoginForm = () => {
         const data = await response.json();
         localStorage.setItem('username', JSON.stringify(data.username));
         localStorage.setItem('token', JSON.stringify(data.token));
+        localStorage.setItem('role', JSON.stringify(data.role));
+        localStorage.setItem('boardId', JSON.stringify(data.boardId));
         navigate("/materia");
       } else {
         console.error('Login failed');
