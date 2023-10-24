@@ -1,38 +1,23 @@
 import { useEffect, useState } from "react";
 import "./style.css";
-import PropTypes from "prop-types";
 import user from "../../assets/img/user.svg";
 import up from "../../assets/img/up.svg";
 import down from "../../assets/img/down.svg";
 import ReportModal from "../report";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CriarQuestaoModal from "../criar_questao_modal";
 import CriarRespostaModal from "../criar_resposta_modal";
 
-function Materias({ id }) {
+function Search() {
+  const { search } = useParams();
   const token = JSON.parse(localStorage.getItem("token"));
   const username = JSON.parse(localStorage.getItem("username"));
   const navigate = useNavigate();
-  const [materia, setMateria] = useState(null);
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/boards/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setMateria(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-
-    fetch(`http://localhost:8080/posts/board/${id}/${username}`, {
+    fetch(`http://localhost:8080/posts/search/${search}/${username}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,11 +28,12 @@ function Materias({ id }) {
       .then((data) => {
         console.log(data);
         setPosts(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [id]);
+  }, []);
 
   const goToQuestion = (id) => {
     navigate(`/questao/${id}`);
@@ -89,23 +75,19 @@ function Materias({ id }) {
       });
   };
 
-  if (!materia) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  console.log(materia);
   if (posts.length === 0) {
     return (
       <div className="container">
         <header className="materia_title">
-          <CriarQuestaoModal boardId={id} />
-          <h2>{materia.name}</h2>
+          <div className="mat_header_empty_div" />
+          <h2>Pesquisa: {search}</h2>
           <div className="mat_header_empty_div" />
         </header>
-        <span className="no_questions_div">
-          Está materia ainda não tem nenhuma pergunta, clique em criar nova
-          questao e seja o primeiro a perguntar{" "}
-        </span>
+        <span className="no_questions_div">Nenhum resultado encontrado!</span>
       </div>
     );
   }
@@ -113,8 +95,8 @@ function Materias({ id }) {
   return (
     <div className="container">
       <header className="materia_title">
-        <CriarQuestaoModal boardId={id} />
-        <h2>{materia.name}</h2>
+        <div className="mat_header_empty_div" />
+        <h2>Pesquisa: {search}</h2>
         <div className="mat_header_empty_div" />
       </header>
       <div className="question_container">
@@ -133,20 +115,32 @@ function Materias({ id }) {
             <div className="rating">
               <div className="vote_div">
                 {post.voteStatus === "upvote" ? (
-                  <button className="upvoted" onClick={(event) => upvotePost(post.id, event)}>
+                  <button
+                    className="upvoted"
+                    onClick={(event) => upvotePost(post.id, event)}
+                  >
                     <img src={up} />
                   </button>
                 ) : (
-                  <button className="vote_button" onClick={(event) => downvotePost(post.id, event)}>
+                  <button
+                    className="vote_button"
+                    onClick={(event) => downvotePost(post.id, event)}
+                  >
                     <img className="vote" src={up} />
                   </button>
                 )}
                 {post.voteStatus === "downvote" ? (
-                  <button className="downvoted" onClick={(event) => downvotePost(post.id, event)}>
+                  <button
+                    className="downvoted"
+                    onClick={(event) => downvotePost(post.id, event)}
+                  >
                     <img src={down} />
                   </button>
                 ) : (
-                  <button className="vote_button" onClick={(event) => downvotePost(post.id, event)}>
+                  <button
+                    className="vote_button"
+                    onClick={(event) => downvotePost(post.id, event)}
+                  >
                     <img className="vote" src={down} />
                   </button>
                 )}
@@ -161,8 +155,4 @@ function Materias({ id }) {
   );
 }
 
-Materias.propTypes = {
-  id: PropTypes.string.isRequired,
-};
-
-export default Materias;
+export default Search;

@@ -3,6 +3,7 @@ import add from '../../assets/img/add.svg'
 import "./style.css"
 
 function CriarDisc() {
+  const token = JSON.parse(localStorage.getItem('token'));
   const [isOpen, setIsOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState("1"); // State to store the selected period
 

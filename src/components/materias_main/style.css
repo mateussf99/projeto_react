@@ -83,6 +83,38 @@
     height: 2rem;
 }
 
+
+.vote_button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.upvoted {
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 1rem;
+    outline: solid #30631A 2px;
+    border: none;
+    width: 34px;
+    margin-right: 5px;
+}
+.downvoted {
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 1rem;
+    outline: solid #933131 2px;
+    border: none;
+    width: 34px;
+    margin-left: 5px;
+}
+
+.downvoted img {
+    width: 24px;
+    height: 24px;
+}
+
 .date {
     margin-left: auto;
 }
@@ -91,9 +123,3 @@
     display: flex;
 }
 
-.vote_div button{
-    background-color: transparent;
-    outline: none;
-    border: none;
-    cursor: pointer;
-}

@@ -31,7 +31,7 @@ function Index() {
 
   useEffect(() => {
 
-    fetch(`http://localhost:8080/posts/${id}`, {
+    fetch(`http://localhost:8080/posts/${id}/${username}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ function Index() {
         console.error("Error fetching data:", error);
       });
 
-    fetch(`http://localhost:8080/comments/posts/${id}`, {
+    fetch(`http://localhost:8080/comments/posts/${id}/${username}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -167,12 +167,24 @@ function Index() {
           <div dangerouslySetInnerHTML={{ __html: question.text }} />
           <div className="rating">
             <div className="vote_div">
-              <button onClick={ upvotePost }>
-                <img className='vote' src={up} />
-              </button>
-              <button onClick={ downvotePost }>
-                <img className='vote' src={down} />
-              </button>
+            {question.voteStatus === "upvote" ? (
+                  <button className="upvoted" onClick={upvotePost}>
+                    <img src={up} />
+                  </button>
+                ) : (
+                  <button className="vote_button" onClick={upvotePost}>
+                    <img className="vote" src={up} />
+                  </button>
+                )}
+                {question.voteStatus === "downvote" ? (
+                  <button className="downvoted" onClick={downvotePost}>
+                    <img src={down} />
+                  </button>
+                ) : (
+                  <button className="vote_button" onClick={downvotePost}>
+                    <img className="vote" src={down} />
+                  </button>
+                )}
             </div>
             <ReportModal postId={question.id} username={question.user}/>
           </div>
@@ -197,12 +209,24 @@ function Index() {
               <div dangerouslySetInnerHTML={{ __html: comment.text }} />
               <div className="rating">
                 <div className="vote_div">
-                  <button onClick={ () => upvoteComment(comment.id) }>
-                    <img className='vote' src={up} />
+                {comment.voteStatus === "upvote" ? (
+                  <button className="upvoted" onClick={() => upvoteComment(comment.id)}>
+                    <img src={up} />
                   </button>
-                  <button onClick={ () => downvoteComment(comment.id) }>
-                    <img className='vote' src={down} />
+                ) : (
+                  <button className="vote_button" onClick={() => upvoteComment(comment.id)}>
+                    <img className="vote" src={up} />
                   </button>
+                )}
+                {comment.voteStatus === "downvote" ? (
+                  <button className="downvoted" onClick={() => downvoteComment(comment.id)}>
+                    <img src={down} />
+                  </button>
+                ) : (
+                  <button className="vote_button" onClick={() => downvoteComment(comment.id)}>
+                    <img className="vote" src={down} />
+                  </button>
+                )}
                 </div>
                 <ReportModal commentId={comment.id} username={ comment.user }/>
               </div>

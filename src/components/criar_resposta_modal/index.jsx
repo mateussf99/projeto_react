@@ -11,6 +11,10 @@ function CriarRespostaModal({ questionId, type }) {
   const username = JSON.parse(localStorage.getItem('username'));
   const answerRef = useRef();
 
+  const onClick = (event) => {
+    event.stopPropagation();
+  }
+
   const openModal = () => {
     setIsOpen(true);
   }
@@ -68,7 +72,7 @@ function CriarRespostaModal({ questionId, type }) {
   };
 
   return (
-    <div>
+    <div onClick={onClick}>
       {type === "small-button" ? <button
         style={{ border: "none", background: "none" }}
         onClick={openModal}

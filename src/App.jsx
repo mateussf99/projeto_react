@@ -7,6 +7,7 @@ import Materias from "./pages/materia/";
 import Questao from "./pages/questao/";
 import UserPage from "./pages/user_page/";
 import AdminPage from "./pages/Admin";
+import Busca from "./pages/busca";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/selecaomonitor" element={<SelecaoMonitor />} />
           <Route path="/materia" element={<Materias />} />
           <Route path="/questao/:id" element={<Questao />} />
+          <Route path="/busca/:search" element={<Busca/>} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Routes>

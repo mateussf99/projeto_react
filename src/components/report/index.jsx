@@ -30,7 +30,7 @@ function ReportModal({ postId, commentId, username }) {
       username: username,
       reason: description,
     }
-
+    
     let url = "";
     if(typeof postId !== 'undefined') {
       url = `http://localhost:8080/report/${postId}/reportPost`;
@@ -38,6 +38,9 @@ function ReportModal({ postId, commentId, username }) {
     if(typeof commentId !== 'undefined') {
       url = `http://localhost:8080/report/${commentId}/reportComment`;
     }
+
+    console.log(url);
+    console.log(data);
 
     try {
       const response = await fetch(url, {
