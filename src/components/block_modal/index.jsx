@@ -54,12 +54,11 @@ function Block({ id, reportId, type }) {
   const reason = useRef();
 
   const HandleClick = (event) => {
-    event.preventDefault();
     const dataToSend = {
       reason: reason.current.value,
       timeout: timeout,
     };
-
+    console.log(dataToSend);
     fetch(`http://localhost:8080/report/${reportId}/blockUser`, {
       method: 'POST',
       headers: {
@@ -75,7 +74,7 @@ function Block({ id, reportId, type }) {
           return response.json();
         }
       })
-      .then((data) => {  
+      .then((data) => {
         console.log(data);
       })
       .catch((error) => {
@@ -102,17 +101,17 @@ function Block({ id, reportId, type }) {
             <form className="block_form">
               {type === "comments" ? <div>
                 <span className="block_label">Resposta que foi reportada: </span>
-                <br/>
-                <div dangerouslySetInnerHTML={{ __html: post.text }}/>
-                
+                <br />
+                <div dangerouslySetInnerHTML={{ __html: post.text }} />
+
               </div>
-               :
+                :
                 type === "posts" ? <div>
                   <span className="block_label">    Questão que foi reportada: </span>
-                <br/>
-                <span>{post.title}</span>
-                <br/>
-                <div dangerouslySetInnerHTML={{ __html: post.text }}/>
+                  <br />
+                  <span>{post.title}</span>
+                  <br />
+                  <div dangerouslySetInnerHTML={{ __html: post.text }} />
                 </div> : "ERROR"}
               <div className="block_title">
                 <span className="block_label">Motivo:</span>
@@ -122,12 +121,12 @@ function Block({ id, reportId, type }) {
                 <label>Tempo:</label>
                 <select onChange={handleSelectChange}>
                   <option value="" disabled>Escolha a tempo</option>
-                  <option value="0">Nenhum</option>
-                  <option value="2">1 Semana</option>
-                  <option value="3">2 Semanas</option>
-                  <option value="4">1 Mês</option>
-                  <option value="5">6 Meses</option>
-                  <option value="6">Permanente</option>
+                  <option value={0}>Nenhum</option>
+                  <option value={7}>1 Semana</option>
+                  <option value={14}>2 Semanas</option>
+                  <option value={30}>1 Mês</option>
+                  <option value={180}>6 Meses</option>
+                  <option value={9999}>Permanente</option>
                 </select>
               </p>
               <div className="new_question_button_container">

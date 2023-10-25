@@ -39,7 +39,11 @@ const LoginForm = () => {
         navigate("/materia");
       } else {
         console.error('Login failed');
-        setErrorMessage("Email ou Senha incorretos");
+        if (response.status === 403) {
+          setErrorMessage("Conta Bloqueada");
+        } else {
+          setErrorMessage("Email ou Senha incorretos");
+        }
       }
     } catch (error) {
       console.error('An error occurred:', error);

@@ -72,11 +72,13 @@ function MateriasModMenu() {
       </div>
       <ul className='mod_list_container'>
         {reports.map((report, index) => (
-          <div key={index} className='mod_menu_report_item'>
-            <li className='mod_list_span' >{report.reason}</li>
-            {report.idPost !== null ? <Block type="posts" id={report.idPost} /> :
-              report.idComment !== null ? <Block type="comments" id={report.idComment} /> : "error"}
-          </div>
+          <div>{!report.answered ?
+            <div key={index} className='mod_menu_report_item'>
+
+              <li className='mod_list_span' >{report.reason}</li>
+              {report.idPost !== null ? <Block type="posts" id={report.idPost} reportId={report.id} /> :
+                report.idComment !== null ? <Block type="comments" id={report.idComment} reportId={report.id} /> : "error"}
+            </div> : null}</div>
         ))}
 
       </ul>
