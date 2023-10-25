@@ -2,6 +2,7 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import userImg from "../../assets/img/user.svg"
+import Senha from "../altera_senha"
 
 function Index() {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -16,6 +17,10 @@ function Index() {
 
     const monitoria = () => {
         navigate("/selecaomonitor");
+    }
+
+    const mudarSenha = () => {
+        navigate("/senha");
     }
 
     useEffect(() => {
@@ -93,7 +98,7 @@ function Index() {
                 </div>
             </div>
             <div className='user_page_button_container'>
-                <button className='user_page_button'>Alterar Senha</button>
+                <Senha login={user.login} />
                 <button onClick={monitoria} className='user_page_button'>Voluntariar-se à Moderação</button>
             </div>
         </div>
