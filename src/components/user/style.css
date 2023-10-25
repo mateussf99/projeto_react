@@ -39,9 +39,31 @@
 }
 
 .user_page_materia_list {
-  margin: 0rem 0rem 0rem 7.5rem;
+  margin: 0rem 5rem 0rem 7.5rem;
   font-size: 2.5rem;
   display: block;
+  height: 180px;
+  overflow-y: auto;
+}
+
+.user_page_materia_list::-webkit-scrollbar {
+  width: 0.8rem;     /* Tamanho do scroll em si */           
+}
+
+.user_page_materia_list::-webkit-scrollbar-track {
+  background: none;    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  
+}
+
+.user_page_materia_list::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+  
+}
+.user_page_materia_list::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
 }
 
 .user_page_QaA_container {
@@ -55,7 +77,26 @@
 }
 
 .user_page_questions_container {
+  overflow-y: auto;
   width: 50%;
+}
+
+.user_page_questions_container::-webkit-scrollbar {
+  width: 1rem;     /* Tamanho do scroll em si */            
+}
+
+.user_page_questions_container::-webkit-scrollbar-track {
+  background: var(--white-color);    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+}
+
+.user_page_questions_container::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid var(--white-color);
+}
+.user_page_questions_container::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
 }
 
 .user_page_questions_container span {
@@ -100,4 +141,25 @@
 .user_page_button:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
+}
+
+
+left_tab::-webkit-scrollbar {
+  width: 0.8rem;     /* Tamanho do scroll em si */           
+}
+
+.left_tab::-webkit-scrollbar-track {
+  background: none;    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  
+}
+
+.left_tab::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+  
+}
+.left_tab::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
 }

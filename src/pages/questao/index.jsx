@@ -2,6 +2,7 @@ import "./style.css";
 import Header from "../../components/header";
 import Questoes from "../../components/questao/";
 import MateriasSelectMenu from "../../components/materias_select_menu/";
+import MateriasModMenu from '../../components/materias_mod_menu';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -12,6 +13,7 @@ const Index = () => {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem('token'));
   const username = JSON.parse(localStorage.getItem('username'));
+  const role = JSON.parse(localStorage.getItem('role'));
   useEffect(() => {
     fetchUserBoards();
   }, []);
@@ -66,6 +68,7 @@ const Index = () => {
           list={listaMaterias} onChange={handleMateriaChange}
         />
         <Questoes />
+        {role === "MONITOR" ? <MateriasModMenu /> : null}
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ function Search() {
   }, []);
 
   const goToQuestion = (id) => {
-    navigate(`/questao/${id}`);
+    navigate(`/questao/search/${id}`);
   };
 
   const upvotePost = (id, event) => {

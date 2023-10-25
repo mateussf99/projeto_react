@@ -51,6 +51,7 @@
   border-radius: 0rem 1rem 1rem 1rem;
   background-color: var(--white-color);
   padding: 2rem;
+  overflow-y: auto;
 }
 .middle_tab {
   height: 61vh;
@@ -58,6 +59,7 @@
   border-radius: 1rem 1rem 1rem 1rem;
   padding: 2rem;
   background-color: var(--white-color);
+  overflow-y: auto;
 }
 .right_tab {
   height: 61vh;
@@ -65,4 +67,64 @@
   border: solid 0.2rem var(--primary-color);
   border-radius: 1rem 0rem 1rem 1rem;
   background-color: var(--white-color);
+  overflow-y: auto;
+}
+
+.middle_tab::-webkit-scrollbar {
+  width: 0.8rem;     /* Tamanho do scroll em si */   
+      
+}
+
+.middle_tab::-webkit-scrollbar-track {
+  background: none;    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  }
+
+.middle_tab::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+  }
+.middle_tab::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
+}
+
+.right_tab::-webkit-scrollbar {
+  width: 0.8rem;     /* Tamanho do scroll em si */           
+}
+
+.right_tab::-webkit-scrollbar-track {
+  background: none;    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  
+}
+
+.right_tab::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+  
+}
+.right_tab::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
+}
+
+.left_tab::-webkit-scrollbar {
+  width: 0.8rem;     /* Tamanho do scroll em si */           
+}
+
+.left_tab::-webkit-scrollbar-track {
+  background: none;    /* Fundo do scroll */  
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  
+}
+
+.left_tab::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);    /* Cor do scroll */
+  border-radius: 2rem;      /* Arredondamento do scroll */
+  border: 0.2rem solid transparent;
+  
+}
+.left_tab::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);  /* Cor do scroll */
 }

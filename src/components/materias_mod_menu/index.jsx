@@ -1,6 +1,7 @@
 import './style.css';
 import { useEffect, useState } from 'react';
 import Block from "../block_modal";
+import { useNavigate } from 'react-router-dom';
 
 
 function MateriasModMenu() {
@@ -8,6 +9,7 @@ function MateriasModMenu() {
   const boardId = JSON.parse(localStorage.getItem('boardId'));
   const [posts, setPosts] = useState([]);
   const [reports, setReports] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:8080/posts/unanswered/${boardId}`, {
@@ -45,6 +47,10 @@ function MateriasModMenu() {
       });
   }, []);
 
+  const goToQuestion = (event, postId) => {
+    event.preventDefault();
+    navigate(`/questao/${boardId}/${postId}`);
+  }
 
   return (
     <div className='materia_mod_menu'>
@@ -57,7 +63,7 @@ function MateriasModMenu() {
         </div>
         <ul className='mod_list_container'>
           {posts.map((post, index) => (
-            <li className='mod_list_span' key={index}>{post.title}</li>
+            <li className='mod_list_span' key={index} onClick={(event) => goToQuestion(event, post.id)} style={{ cursor: "pointer" }}>{post.title}</li>
           ))}
         </ul>
       </div>
@@ -68,8 +74,8 @@ function MateriasModMenu() {
         {reports.map((report, index) => (
           <div key={index} className='mod_menu_report_item'>
             <li className='mod_list_span' >{report.reason}</li>
-            {report.idPost !== null ? <Block type="posts" id={report.idPost}/> : 
-            report.idComment !== null ? <Block type="comments" id={report.idComment}/> : "error"}
+            {report.idPost !== null ? <Block type="posts" id={report.idPost} /> :
+              report.idComment !== null ? <Block type="comments" id={report.idComment} /> : "error"}
           </div>
         ))}
 

@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Materia = () => {
   const token = JSON.parse(localStorage.getItem('token'));
-  const unAnsweredQuestions = ["Título Pergunta 2", "Título Pergunta 3"]
   const [isLoading, setIsLoading] = useState(true);
   const [listaMaterias, setListaMaterias] = useState([]);
   const [selectedMateriaId, setSelectedMateriaId] = useState(null);
@@ -67,7 +66,7 @@ const Materia = () => {
       <div className='body'>
         <MateriasSelectMenu list={listaMaterias} onChange={handleMateriaChange} />
         <Materias id={selectedMateriaId} />
-        {role === "MONITOR" ? <MateriasModMenu questions={unAnsweredQuestions} /> : null}
+        {role === "MONITOR" ? <MateriasModMenu /> : null}
       </div>
     </div>
   )

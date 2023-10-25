@@ -1,6 +1,7 @@
 import './style.css';
 import Header from '../../components/header'
 import MateriasSelectMenu from '../../components/materias_select_menu/';
+import MateriasModMenu from '../../components/materias_mod_menu';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/search';
@@ -13,6 +14,8 @@ const Busca = () => {
   const [selectedMateriaId, setSelectedMateriaId] = useState(null);
   const navigate = useNavigate();
   const username = JSON.parse(localStorage.getItem('username'));
+  const role = JSON.parse(localStorage.getItem('role'));
+
   useEffect(() => {
     fetchUserBoards();
   }, []);
@@ -61,6 +64,7 @@ const Busca = () => {
       <div className='body'>
         <MateriasSelectMenu list={listaMaterias} onChange={handleMateriaChange} />
         <Search/>
+        {role === "MONITOR" ? <MateriasModMenu /> : null}
       </div>
     </div>
   )
